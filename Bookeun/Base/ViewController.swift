@@ -9,11 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        attribute()
+        layout()
         
         view.backgroundColor = .white
     }
+    
+    func attribute() {}
+    
+    func layout() {}
 }
