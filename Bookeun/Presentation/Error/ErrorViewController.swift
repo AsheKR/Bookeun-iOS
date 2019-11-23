@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ErrorViewController: ViewController {
+class ErrorViewController: EmptyViewController {
     let errorView = ErrorView()
 
     override func layout() {

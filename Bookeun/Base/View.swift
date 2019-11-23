@@ -8,7 +8,9 @@
 
 import UIKit
 
-class View: UIView {
+class View<P: PresenterProtocol>: UIView {
+    private(set) lazy var presenter = P.create(self)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
