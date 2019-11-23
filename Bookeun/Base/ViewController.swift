@@ -24,10 +24,11 @@ class ViewController<P: PresenterProtocol>: UIViewController, Nameable {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .white
+        
         attribute()
         layout()
-
-        view.backgroundColor = .white
     }
 
     func attribute() {}

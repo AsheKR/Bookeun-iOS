@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class TrainerCell: UICollectionViewCell {
+class TrainerCell: UICollectionViewCell, Nameable {
     let trainerImageView = UIImageView()
     let stageImageView = UIImageView()
     let nameLabel = UILabel()
@@ -41,31 +41,39 @@ class TrainerCell: UICollectionViewCell {
     }
     
     func attribute() {
+        self.do {
+            $0.backgroundColor = .white
+        }
+        
         trainerImageView.do {
             $0.contentMode = .scaleAspectFit
-            $0.image = #imageLiteral(resourceName: "StageIcon")
         }
         
         stageImageView.do {
             $0.contentMode = .scaleAspectFit
+            $0.image = #imageLiteral(resourceName: "StageIcon")
         }
         
         nameLabel.do {
             $0.text = "----"
             $0.font = .systemFont(ofSize: 20)
+            $0.textColor = .black
         }
     }
     
     func layout() {
-        addSubviews(trainerImageView, stageImageView, nameLabel)
+        addSubviews(stageImageView, trainerImageView, nameLabel)
         
         trainerImageView.snp.makeConstraints {
+            $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(stageImageView.snp.top).offset(10)
+            $0.bottom.equalTo(stageImageView.snp.top).offset(20)
         }
         
         stageImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
+            $0.width.equalTo(265)
+            $0.height.equalTo(36)
             $0.bottom.equalToSuperview().offset(-30)
         }
         stageImageView.setContentHuggingPriority(.defaultHigh, for: .vertical)

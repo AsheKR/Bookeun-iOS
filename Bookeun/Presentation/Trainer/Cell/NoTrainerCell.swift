@@ -9,7 +9,7 @@
 import UIKit
 import Then
 
-class NoTrainerCell: UICollectionViewCell {
+class NoTrainerCell: UICollectionViewCell, Nameable {
     let titleLabel = UILabel()
     let stageImageView = UIImageView()
     
@@ -26,6 +26,10 @@ class NoTrainerCell: UICollectionViewCell {
     }
     
     func attribute() {
+        self.do {
+            $0.backgroundColor = .white
+        }
+        
         titleLabel.do {
             $0.text = "맘에 드는 트레이너가 없다."
             $0.font = .systemFont(ofSize: 20)
@@ -33,6 +37,7 @@ class NoTrainerCell: UICollectionViewCell {
         }
         
         stageImageView.do {
+            $0.contentMode = .scaleAspectFit
             $0.image = #imageLiteral(resourceName: "StageIcon")
         }
     }
@@ -46,6 +51,8 @@ class NoTrainerCell: UICollectionViewCell {
         
         stageImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
+            $0.width.equalTo(265)
+            $0.height.equalTo(36)
             $0.bottom.equalToSuperview().offset(-30)
         }
     }

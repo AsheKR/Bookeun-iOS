@@ -22,12 +22,12 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
     
     let disposeBag = DisposeBag()
     
-    func selectButtonTapped() {
+    @objc func selectButtonTapped() {
         let selectedCell = trainersCollectionView.visibleCells.first as? TrainerCell
         
         if let trainer = selectedCell?.trainer {
-            
-//            present(, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+            Store.share.setTrainer(trainer)
+            present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
         } else {
             presentErrorView()
         }
@@ -40,17 +40,18 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layoutIfNeeded()
-        collectionFlowLayout.itemSize = trainersCollectionView.frame.size
+        collectionFlowLayout.itemSize = .init(width: UIScreen.main.bounds.width, height: trainersCollectionView.frame.height - 150)
         
         presenter.trainers
-            .map { $0 + [nil] }
-            .bind(to: trainersCollectionView.rx.items) { cv, row, trainer in
+            .map { ($0 as [Trainer]) + [nil] }
+            .asDriver(onErrorDriveWith: .empty())
+            .drive(trainersCollectionView.rx.items) { clv, row, trainer in
                 if let trainer = trainer {
-                    let cell = cv.dequeueReusableCell(withReuseIdentifier: "TrainerCell", for: .init(row: row, section: 0)) as! TrainerCell
+                    let cell = clv.dequeueReusableCell(withReuseIdentifier: TrainerCell.identifier, for: .init(row: row, section: 0)) as! TrainerCell
                     cell.setTrainer(trainer)
                     return cell
                 } else {
-                    return cv.dequeueReusableCell(withReuseIdentifier: "NoTrainerCell", for: .init(row: row, section: 0))
+                    return clv.dequeueReusableCell(withReuseIdentifier: NoTrainerCell.identifier, for: .init(row: row, section: 0))
                 }
             }
             .disposed(by: disposeBag)
@@ -62,22 +63,35 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
         titleLabel.do {
             $0.text = "당신의 트레이너는"
             $0.font = .systemFont(ofSize: 32, weight: .bold)
+            $0.textColor = .black
         }
         
         descriptionLabel.do {
             $0.text = "당신의 체형과 비슷한 트레이너를 선택해 주세요"
             $0.font = .systemFont(ofSize: 14)
+            $0.textColor = .black
+        }
+        
+        collectionFlowLayout.do {
+            $0.scrollDirection = .horizontal
+            $0.sectionInset = .zero
+            $0.minimumInteritemSpacing = 0
+            $0.minimumLineSpacing = 0
         }
         
         trainersCollectionView.do {
-            $0.register(NoTrainerCell.self, forCellWithReuseIdentifier: "NoTrainer")
-            $0.register(TrainerCell.self, forCellWithReuseIdentifier: "Trainer")
+            $0.register(NoTrainerCell.self, forCellWithReuseIdentifier: NoTrainerCell.identifier)
+            $0.register(TrainerCell.self, forCellWithReuseIdentifier: TrainerCell.identifier)
+            $0.isPagingEnabled = true
+            $0.delegate = self
+            $0.backgroundColor = .white
         }
         
         selectButton.do {
             $0.setTitle("책 등록으로 넘어가기", for: .normal)
             $0.backgroundColor = .green
             $0.layer.cornerRadius = 23
+            $0.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
         }
     }
     
@@ -87,6 +101,7 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
         progressView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(15)
             $0.left.right.equalToSuperview().inset(30)
+            $0.height.equalTo(20)
         }
         
         titleLabel.snp.makeConstraints {
@@ -117,15 +132,14 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
 extension TrainerSelectViewController {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let trainerCell = cell as? TrainerCell {
-            trainerCell.setHighlighted(true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak trainerCell] in
+                trainerCell?.setHighlighted(true)
+            }
             selectButton.setTitle("책 등록으로 넘어가기", for: .normal)
         } else {
             // Trainer가 선택되지 않을 때
             selectButton.setTitle("진짜? 아무도 없어요?", for: .normal)
         }
-        
-        let trainerCell = cell as? TrainerCell
-        trainerCell?.setHighlighted(true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
