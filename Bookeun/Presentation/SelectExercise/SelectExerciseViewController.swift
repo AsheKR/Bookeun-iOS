@@ -22,6 +22,7 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        presenter.request()
         scrollToCenter()
     }
 
@@ -67,7 +68,6 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     private func getCenterIndex(_ scrollView: UIScrollView) {
         let center = CGPoint(x: scrollView.center.x + scrollView.contentOffset.x, y: .zero)
 
-        print("center: \(center), \(collectionView), \(collectionView.indexPathForItem(at: center))")
         if let selected = collectionView.indexPathForItem(at: center) {
             if scrollIndex != selected.row {
                 scrollIndex = selected.row
@@ -95,10 +95,17 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     }
     
     @IBAction private func actionNextButton(_ sender: UIButton) {
-        
-        // TODO: Push로 변경
         let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ExerciseListViewController.identifier)
-        present(viewController, animated: false, completion: nil)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    
+    func presentErrorView(error: Error) {
+        present(ErrorViewController(), animated: true, completion: nil)
+    }
+    
+    func update(categoryList: [ExerciseCategory], exerciseList: [Exercise]) {
+        print("\(categoryList)")
     }
 }
 

@@ -12,11 +12,11 @@ struct Exercise {
     let id: Int
     let name: String
     let category: ExerciseCategory
-    let exerciseTime: Int
-    let calorie: Int
-    let power: ExercisePower
+    let exerciseTime: Int?
+    let calorie: Int?
+    let power: ExercisePower?
     let explainList: [String]
-    let imageURLs: [URL]
+    let imageURLs: [URL]?
 }
 
 extension Exercise: Codable {
