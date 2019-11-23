@@ -37,7 +37,7 @@ class ErrorView: EmptyView {
                     .paragraphStyle: lineSpacingStyle
                 ]
             )
-            $0.font = .systemFont(ofSize: 80, weight: .bold)
+            $0.font = .systemFont(ofSize: 70, weight: .bold)
             $0.adjustsFontSizeToFitWidth = true
             $0.numberOfLines = 3
         }
