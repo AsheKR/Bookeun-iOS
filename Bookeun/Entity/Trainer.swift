@@ -9,7 +9,7 @@
 import Foundation
 
 struct Trainer {
-    let id: String
+    let id: Int
     let name: String
     let imageURL: URL
     let impactImageURL: URL
