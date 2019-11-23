@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExercisePresenter {
+class ExercisePresenter: PresenterProtocol {
     
     unowned let view: ExerciseViewController
     let exercise: Exercise
@@ -18,12 +18,12 @@ class ExercisePresenter {
     var readyCount: Int = 3
     var isReadyState: Bool = false {
         didSet {
-            view.readyView.isHidden = !isReadyState
+            view.readyView(hide: !isReadyState)
         }
     }
     var isExplainState: Bool = false {
         didSet {
-            view.explainExerciseView.isHidden = !isExplainState
+            view.explainView(hide: !isExplainState)
         }
     }
     
