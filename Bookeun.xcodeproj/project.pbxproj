@@ -105,7 +105,6 @@
 				C924D7982386C8DD002ADF0C /* AppDelegate.swift */,
 				C924D7AC2386C905002ADF0C /* RootWindow.swift */,
 				C924D7AE2386D1F9002ADF0C /* Base */,
-				C903E07C2389264C0083D079 /* Error */,
 				C903E07123890BFB0083D079 /* Entity */,
 				D9B531F923892A10005135EF /* Presentation */,
 				C924D7A12386C8DF002ADF0C /* Assets.xcassets */,
@@ -137,6 +136,7 @@
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C903E07C2389264C0083D079 /* Error */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
