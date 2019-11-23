@@ -12,6 +12,12 @@
 		C903E07723890D330083D079 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07623890D330083D079 /* Exercise.swift */; };
 		C903E07B2389237C0083D079 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07A2389237C0083D079 /* View.swift */; };
 		C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0812389277C0083D079 /* UIView+Extension.swift */; };
+		C903E08C23894B900083D079 /* TrainerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E08B23894B900083D079 /* TrainerRepository.swift */; };
+		C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E08D23894BF10083D079 /* NetworkReposity.swift */; };
+		C903E09123894C6B0083D079 /* BookeunAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E09023894C6B0083D079 /* BookeunAPI.swift */; };
+		C903E093238951050083D079 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E092238951050083D079 /* BookRepository.swift */; };
+		C903E095238951B60083D079 /* ExerciseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E094238951B60083D079 /* ExerciseRepository.swift */; };
+		C903E097238954310083D079 /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E096238954310083D079 /* ExerciseCategory.swift */; };
 		C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7982386C8DD002ADF0C /* AppDelegate.swift */; };
 		C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D79C2386C8DD002ADF0C /* ViewController.swift */; };
 		C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A12386C8DF002ADF0C /* Assets.xcassets */; };
@@ -28,6 +34,12 @@
 		C903E07623890D330083D079 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C903E07A2389237C0083D079 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		C903E0812389277C0083D079 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C903E08B23894B900083D079 /* TrainerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRepository.swift; sourceTree = "<group>"; };
+		C903E08D23894BF10083D079 /* NetworkReposity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReposity.swift; sourceTree = "<group>"; };
+		C903E09023894C6B0083D079 /* BookeunAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookeunAPI.swift; sourceTree = "<group>"; };
+		C903E092238951050083D079 /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
+		C903E094238951B60083D079 /* ExerciseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRepository.swift; sourceTree = "<group>"; };
+		C903E096238954310083D079 /* ExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
 		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C924D7982386C8DD002ADF0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C924D79C2386C8DD002ADF0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,8 +76,28 @@
 				C903E07223890C330083D079 /* Book.swift */,
 				C903E07423890CCC0083D079 /* Trainer.swift */,
 				C903E07623890D330083D079 /* Exercise.swift */,
+				C903E096238954310083D079 /* ExerciseCategory.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		C903E08A238949C30083D079 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				C903E08B23894B900083D079 /* TrainerRepository.swift */,
+				C903E092238951050083D079 /* BookRepository.swift */,
+				C903E094238951B60083D079 /* ExerciseRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		C903E08F23894C120083D079 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C903E08D23894BF10083D079 /* NetworkReposity.swift */,
+				C903E09023894C6B0083D079 /* BookeunAPI.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C924D78C2386C8DD002ADF0C = {
@@ -93,6 +125,8 @@
 				C924D7AC2386C905002ADF0C /* RootWindow.swift */,
 				C924D7AE2386D1F9002ADF0C /* Base */,
 				C903E07123890BFB0083D079 /* Entity */,
+				C903E08F23894C120083D079 /* Network */,
+				C903E08A238949C30083D079 /* Repository */,
 				D9B531F923892A10005135EF /* Presentation */,
 				C924D7A12386C8DF002ADF0C /* Assets.xcassets */,
 				C924D7A32386C8DF002ADF0C /* LaunchScreen.storyboard */,
@@ -261,10 +295,16 @@
 			files = (
 				C903E07323890C330083D079 /* Book.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
+				C903E093238951050083D079 /* BookRepository.swift in Sources */,
+				C903E097238954310083D079 /* ExerciseCategory.swift in Sources */,
 				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
+				C903E08C23894B900083D079 /* TrainerRepository.swift in Sources */,
+				C903E09123894C6B0083D079 /* BookeunAPI.swift in Sources */,
 				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
+				C903E095238951B60083D079 /* ExerciseRepository.swift in Sources */,
+				C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */,
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
 			);
@@ -404,7 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74HR8KDU73;
+				DEVELOPMENT_TEAM = W3868KR87Z;
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

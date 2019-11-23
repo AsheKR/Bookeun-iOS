@@ -12,48 +12,19 @@ struct Exercise {
     let id: String
     let name: String
     let category: ExerciseCategory
-    let exerciseTime: Date
+    let exerciseTime: Int
     let calorie: Int
     let power: ExercisePower
-    let description: String
+    let explainList: [String]
     let imageURLs: [URL]
 }
 
 extension Exercise: Codable {
     enum CodingKeys: String, CodingKey {
-        case id, name, category, calorie, power, description
-        case exerciseTime = "exercise_time_ms"
+        case id, name, category, calorie, power
+        case explainList = "descriptions"
+        case exerciseTime = "exercise_time"
         case imageURLs = "image_urls"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let value = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.id = try value.decode(String.self, forKey: .id)
-        self.name = try value.decode(String.self, forKey: .name)
-        self.category = try value.decode(ExerciseCategory.self, forKey: .category)
-        self.exerciseTime = try { () throws in
-            let timeInterval = try value.decode(Double.self, forKey: .exerciseTime)
-            return Date(timeIntervalSince1970: timeInterval)
-        }()
-        self.calorie = try value.decode(Int.self, forKey: .calorie)
-        self.power = try value.decode(ExercisePower.self, forKey: .power)
-        self.description = try value.decode(String.self, forKey: .description)
-        self.imageURLs = try value.decode([URL].self, forKey: .imageURLs)
-    }
-}
-
-struct ExerciseCategory {
-    let id: String
-    let name: String
-    let description: String
-    let exerciseNames: [String]
-}
-
-extension ExerciseCategory: Codable {
-    enum CodingKeys: String, CodingKey {
-        case id, name, description
-        case exerciseNames = "exercise_names"
     }
 }
 
