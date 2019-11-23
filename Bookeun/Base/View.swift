@@ -8,10 +8,20 @@
 
 import UIKit
 
-class View: UIView {
+class View<P: PresenterProtocol>: UIView {
+    private(set) var presenter: P!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        attribute()
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.presenter = P(view: self as! P.View)
+        
         attribute()
         layout()
     }
@@ -19,8 +29,4 @@ class View: UIView {
     func attribute() {}
     
     func layout() {}
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

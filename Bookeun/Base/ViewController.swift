@@ -8,17 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController<P: PresenterProtocol>: UIViewController {
+    private(set) lazy var presenter: P = { P(view: self as! P.View) }()
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        initialize()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         attribute()
         layout()
-        
+
         view.backgroundColor = .white
     }
-    
+
     func attribute() {}
-    
+
     func layout() {}
+
+    func initialize() {}
 }
