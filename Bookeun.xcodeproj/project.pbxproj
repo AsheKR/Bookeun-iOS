@@ -39,6 +39,8 @@
 		CEAC128A238978BB008B69F7 /* SelectExerciseViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC1284238978BB008B69F7 /* SelectExerciseViewControllerPresenter.swift */; };
 		CEAC128C23897AE8008B69F7 /* ExerciseListViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC128B23897AE8008B69F7 /* ExerciseListViewControllerPresenter.swift */; };
 		CEAC128F238989ED008B69F7 /* ExerciseListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC128E238989ED008B69F7 /* ExerciseListViewCell.swift */; };
+		CEAC129123899EB5008B69F7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC129023899EB5008B69F7 /* Store.swift */; };
+		CEAC129323899F4F008B69F7 /* ExerciseWithCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */; };
 		E96ED9183118480A8101899A /* Pods_Bookeun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +64,7 @@
 		C903E09A238960A30083D079 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		C903E09C238963C70083D079 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		C903E09E238963D20083D079 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C924D7982386C8DD002ADF0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C924D79C2386C8DD002ADF0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C924D7A12386C8DF002ADF0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +81,8 @@
 		CEAC1284238978BB008B69F7 /* SelectExerciseViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExerciseViewControllerPresenter.swift; sourceTree = "<group>"; };
 		CEAC128B23897AE8008B69F7 /* ExerciseListViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewControllerPresenter.swift; sourceTree = "<group>"; };
 		CEAC128E238989ED008B69F7 /* ExerciseListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewCell.swift; sourceTree = "<group>"; };
+		CEAC129023899EB5008B69F7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseWithCount.swift; sourceTree = "<group>"; };
 		F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookeun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,6 +113,8 @@
 				C903E07423890CCC0083D079 /* Trainer.swift */,
 				C903E07623890D330083D079 /* Exercise.swift */,
 				C903E096238954310083D079 /* ExerciseCategory.swift */,
+				CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */,
+				CEAC129023899EB5008B69F7 /* Store.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -155,7 +161,7 @@
 		C924D7962386C8DD002ADF0C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C924D7952386C8DD002ADF0C /* 북근북근.app */,
+				C924D7952386C8DD002ADF0C /* 북근북근.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,7 +283,7 @@
 			);
 			name = Bookeun;
 			productName = Bookeun;
-			productReference = C924D7952386C8DD002ADF0C /* 북근북근.app */;
+			productReference = C924D7952386C8DD002ADF0C /* 북근북근.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -391,8 +397,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAC129123899EB5008B69F7 /* Store.swift in Sources */,
 				C903E09B238960A30083D079 /* Presenter.swift in Sources */,
 				C903E07323890C330083D079 /* Book.swift in Sources */,
+				CEAC129323899F4F008B69F7 /* ExerciseWithCount.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
 				CEAC1288238978BB008B69F7 /* SelectExerciseViewController.swift in Sources */,
