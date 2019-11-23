@@ -15,7 +15,7 @@ enum BarcodeReadError: Error {
     case canNotGettingCamera
 }
 
-class BarcodeView: View, AVCaptureMetadataOutputObjectsDelegate {
+class BarcodeView: EmptyView, AVCaptureMetadataOutputObjectsDelegate {
     let captureSession = AVCaptureSession()
     lazy var videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     let currentCode = PublishRelay<String>()

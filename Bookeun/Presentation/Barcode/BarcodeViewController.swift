@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class BarcodeViewController: ViewController {
+class BarcodeViewController: EmptyViewController {
     let barcodeView = BarcodeView(
         barcodeGuideSize: .init(width: 250, height: 250),
         qrcodeGuideSize: .init(width: UIScreen.main.bounds.width + 2, height: 250)

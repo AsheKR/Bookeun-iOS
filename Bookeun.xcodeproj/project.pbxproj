@@ -70,7 +70,7 @@
 		C903E09A238960A30083D079 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		C903E09C238963C70083D079 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		C903E09E238963D20083D079 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C924D7982386C8DD002ADF0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C924D79C2386C8DD002ADF0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C924D7A12386C8DF002ADF0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +125,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		C903E07C2389264C0083D079 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C903E07F238926640083D079 /* ErrorViewController.swift */,
+				C903E07D2389265B0083D079 /* ErrorView.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C903E083238932BC0083D079 /* Barcode */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,15 +142,6 @@
 				C903E0862389332A0083D079 /* BarcodePresenter.swift */,
 			);
 			path = Barcode;
-      sourceTree = "<group>";
-		};
-		C903E07C2389264C0083D079 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				C903E07F238926640083D079 /* ErrorViewController.swift */,
-				C903E07D2389265B0083D079 /* ErrorView.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		C903E08A238949C30083D079 /* Repository */ = {
@@ -177,7 +177,7 @@
 		C924D7962386C8DD002ADF0C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C924D7952386C8DD002ADF0C /* 북근북근.app */,
+				C924D7952386C8DD002ADF0C /* 북근북근.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			);
 			name = Bookeun;
 			productName = Bookeun;
-			productReference = C924D7952386C8DD002ADF0C /* 북근북근.app */;
+			productReference = C924D7952386C8DD002ADF0C /* 북근북근.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
