@@ -11,13 +11,7 @@ import UIKit
 class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        // TODO: remove
-        guard let test = UIStoryboard.init(name: "ExerciseViewController", bundle: nil).instantiateInitialViewController() as? ExerciseViewController else { return }
-        
-        
-        
-//        self.rootViewController = ViewController()
-        self.rootViewController = test
+        self.rootViewController = ViewController()
     }
     
     required init?(coder: NSCoder) {

@@ -29,6 +29,7 @@
 		D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320123893632005135EF /* ExerciseViewController.swift */; };
 		D9B532052389364E005135EF /* ExerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B532042389364E005135EF /* ExerciseViewController.storyboard */; };
 		D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320623893674005135EF /* ExercisePresenter.swift */; };
+		D9B5320B23897EC5005135EF /* ExerciseExplainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */; };
 		E96ED9183118480A8101899A /* Pods_Bookeun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		D9B5320123893632005135EF /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		D9B532042389364E005135EF /* ExerciseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseViewController.storyboard; sourceTree = "<group>"; };
 		D9B5320623893674005135EF /* ExercisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenter.swift; sourceTree = "<group>"; };
+		D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExplainCell.swift; sourceTree = "<group>"; };
 		F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookeun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		C903E07C2389264C0083D079 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C903E07F238926640083D079 /* ErrorViewController.swift */,
+				C903E07D2389265B0083D079 /* ErrorView.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C903E08A238949C30083D079 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,15 +122,6 @@
 				C903E09023894C6B0083D079 /* BookeunAPI.swift */,
 			);
 			path = Network;
-            sourceTree = "<group>";
-        };
-		C903E07C2389264C0083D079 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				C903E07F238926640083D079 /* ErrorViewController.swift */,
-				C903E07D2389265B0083D079 /* ErrorView.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		C924D78C2386C8DD002ADF0C = {
@@ -191,6 +193,7 @@
 				D9B5320123893632005135EF /* ExerciseViewController.swift */,
 				D9B5320623893674005135EF /* ExercisePresenter.swift */,
 				D9B532042389364E005135EF /* ExerciseViewController.storyboard */,
+				D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
 				D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */,
 				C903E080238926640083D079 /* ErrorViewController.swift in Sources */,
+				D9B5320B23897EC5005135EF /* ExerciseExplainCell.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
 				C903E07E2389265B0083D079 /* ErrorView.swift in Sources */,
 			);
@@ -484,7 +488,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				DEVELOPMENT_TEAM = 74HR8KDU73;
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
