@@ -11,6 +11,8 @@
 		C903E07523890CCC0083D079 /* Trainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07423890CCC0083D079 /* Trainer.swift */; };
 		C903E07723890D330083D079 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07623890D330083D079 /* Exercise.swift */; };
 		C903E07B2389237C0083D079 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07A2389237C0083D079 /* View.swift */; };
+		C903E07E2389265B0083D079 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07D2389265B0083D079 /* ErrorView.swift */; };
+		C903E080238926640083D079 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07F238926640083D079 /* ErrorViewController.swift */; };
 		C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0812389277C0083D079 /* UIView+Extension.swift */; };
 		C903E08C23894B900083D079 /* TrainerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E08B23894B900083D079 /* TrainerRepository.swift */; };
 		C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E08D23894BF10083D079 /* NetworkReposity.swift */; };
@@ -34,6 +36,8 @@
 		C903E07423890CCC0083D079 /* Trainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trainer.swift; sourceTree = "<group>"; };
 		C903E07623890D330083D079 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C903E07A2389237C0083D079 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		C903E07D2389265B0083D079 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		C903E07F238926640083D079 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		C903E0812389277C0083D079 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C903E08B23894B900083D079 /* TrainerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRepository.swift; sourceTree = "<group>"; };
 		C903E08D23894BF10083D079 /* NetworkReposity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReposity.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		C903E08A238949C30083D079 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +106,15 @@
 				C903E09023894C6B0083D079 /* BookeunAPI.swift */,
 			);
 			path = Network;
+            sourceTree = "<group>";
+        };
+		C903E07C2389264C0083D079 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C903E07F238926640083D079 /* ErrorViewController.swift */,
+				C903E07D2389265B0083D079 /* ErrorView.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		C924D78C2386C8DD002ADF0C = {
@@ -160,6 +174,7 @@
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C903E07C2389264C0083D079 /* Error */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -310,7 +325,9 @@
 				C903E095238951B60083D079 /* ExerciseRepository.swift in Sources */,
 				C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */,
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
+				C903E080238926640083D079 /* ErrorViewController.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
+				C903E07E2389265B0083D079 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
