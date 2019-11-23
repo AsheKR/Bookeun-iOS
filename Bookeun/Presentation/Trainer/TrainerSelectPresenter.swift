@@ -10,7 +10,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class TrainerSelectPresenter: Presenter<TrainerSelectViewController> {
+class TrainerSelectPresenter: PresenterProtocol {
+    typealias View = TrainerSelectViewController
+    
+    let disposeBag = DisposeBag()
+    
+    unowned let view: TrainerSelectViewController
+    
+    required init(view: View) { self.view = view }
+    
     let trainers = PublishRelay<[Trainer]>()
     
     func getTrainers() {
