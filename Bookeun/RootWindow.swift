@@ -12,7 +12,8 @@ class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.rootViewController = EmptyViewController()
+        let viewController = UIStoryboard(name: SelectExerciseViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: SelectExerciseViewController.identifier)
+        self.rootViewController = viewController
     }
 
     required init?(coder: NSCoder) {
