@@ -10,7 +10,7 @@ import UIKit
 import Then
 import Kingfisher
 
-class ExerciseViewController: ViewController {
+class ExerciseViewController: ViewController<ExercisePresenter> {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var englishNameLabel: UILabel!
@@ -25,8 +25,6 @@ class ExerciseViewController: ViewController {
     @IBOutlet weak var explainExerciseView: UIView!
     @IBOutlet weak var explainTableView: UITableView!
     @IBOutlet weak var closeExplainButton: UIButton!
-    
-    var presenter: ExercisePresenter!
     
     // MARK: - Method
     
@@ -84,6 +82,14 @@ class ExerciseViewController: ViewController {
     
     func showReadyView(_ count: Int) {
         readyLabel.text = String(count)
+    }
+    
+    func readyView(hide: Bool) {
+        readyView.isHidden = hide
+    }
+    
+    func explainView(hide: Bool) {
+        explainExerciseView.isHidden = hide
     }
 }
 
