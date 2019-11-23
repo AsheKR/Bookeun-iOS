@@ -44,7 +44,7 @@ DEPENDENCIES:
   - Toast
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - Kingfisher
     - lottie-ios
@@ -78,4 +78,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 4e0d88c6a89368f3675079c1419e24da94d16db4
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5
