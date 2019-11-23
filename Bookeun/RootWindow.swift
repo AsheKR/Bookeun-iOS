@@ -13,7 +13,8 @@ class RootWindow: UIWindow {
         super.init(frame: frame)
 
         let viewController = UIStoryboard(name: SelectExerciseViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: SelectExerciseViewController.identifier)
-        self.rootViewController = viewController
+        let navigation = UINavigationController(rootViewController: viewController)
+        self.rootViewController = navigation
     }
 
     required init?(coder: NSCoder) {
