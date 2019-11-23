@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import RxSwift
 
 class Presenter<View: AnyObject>: PresenterProtocol {
     typealias View = View
+    
+    let disposeBag = DisposeBag()
     
     unowned let view: Presenter.View
     

@@ -29,6 +29,10 @@
 		C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A12386C8DF002ADF0C /* Assets.xcassets */; };
 		C924D7A52386C8DF002ADF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A32386C8DF002ADF0C /* LaunchScreen.storyboard */; };
 		C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7AC2386C905002ADF0C /* RootWindow.swift */; };
+		C9840102238986D900067A06 /* TrainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9840101238986D900067A06 /* TrainerCell.swift */; };
+		C9840104238986E000067A06 /* NoTrainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9840103238986E000067A06 /* NoTrainerCell.swift */; };
+		C9882C292389751A00180486 /* TrainerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9882C282389751A00180486 /* TrainerSelectViewController.swift */; };
+		C9882C2B2389752400180486 /* TrainerSelectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9882C2A2389752400180486 /* TrainerSelectPresenter.swift */; };
 		E96ED9183118480A8101899A /* Pods_Bookeun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		C924D7A42386C8DF002ADF0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C924D7A62386C8DF002ADF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C924D7AC2386C905002ADF0C /* RootWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindow.swift; sourceTree = "<group>"; };
+		C9840101238986D900067A06 /* TrainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCell.swift; sourceTree = "<group>"; };
+		C9840103238986E000067A06 /* NoTrainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTrainerCell.swift; sourceTree = "<group>"; };
+		C9882C282389751A00180486 /* TrainerSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectViewController.swift; sourceTree = "<group>"; };
+		C9882C2A2389752400180486 /* TrainerSelectPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectPresenter.swift; sourceTree = "<group>"; };
 		F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookeun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,6 +178,25 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		C9840100238986B600067A06 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C9840101238986D900067A06 /* TrainerCell.swift */,
+				C9840103238986E000067A06 /* NoTrainerCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C9882C272389750500180486 /* Trainer */ = {
+			isa = PBXGroup;
+			children = (
+				C9840100238986B600067A06 /* Cell */,
+				C9882C282389751A00180486 /* TrainerSelectViewController.swift */,
+				C9882C2A2389752400180486 /* TrainerSelectPresenter.swift */,
+			);
+			path = Trainer;
+			sourceTree = "<group>";
+		};
 		D8566F6BBACA2E70E4B0DCB6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +209,7 @@
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C9882C272389750500180486 /* Trainer */,
 				C903E07C2389264C0083D079 /* Error */,
 			);
 			path = Presentation;
@@ -321,15 +349,18 @@
 			files = (
 				C903E09B238960A30083D079 /* Presenter.swift in Sources */,
 				C903E07323890C330083D079 /* Book.swift in Sources */,
+				C9882C2B2389752400180486 /* TrainerSelectPresenter.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
 				C903E099238959510083D079 /* RepositoryContainer.swift in Sources */,
 				C903E09D238963C70083D079 /* EmptyViewController.swift in Sources */,
 				C903E097238954310083D079 /* ExerciseCategory.swift in Sources */,
+				C9840104238986E000067A06 /* NoTrainerCell.swift in Sources */,
 				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
 				C903E08C23894B900083D079 /* TrainerRepository.swift in Sources */,
 				C903E09123894C6B0083D079 /* BookeunAPI.swift in Sources */,
 				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
+				C9840102238986D900067A06 /* TrainerCell.swift in Sources */,
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
 				C903E095238951B60083D079 /* ExerciseRepository.swift in Sources */,
@@ -337,6 +368,7 @@
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
 				C903E09F238963D20083D079 /* EmptyView.swift in Sources */,
 				C903E080238926640083D079 /* ErrorViewController.swift in Sources */,
+				C9882C292389751A00180486 /* TrainerSelectViewController.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
 				C903E07E2389265B0083D079 /* ErrorView.swift in Sources */,
 			);
