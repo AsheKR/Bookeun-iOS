@@ -87,7 +87,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		C903E08A238949C30083D079 /* Repository */ = {
 			isa = PBXGroup;
 			children = (

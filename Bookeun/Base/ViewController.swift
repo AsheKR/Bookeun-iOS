@@ -13,6 +13,11 @@ class ViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         initialize()
     }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +33,4 @@ class ViewController: UIViewController {
     func layout() {}
 
     func initialize() {}
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
