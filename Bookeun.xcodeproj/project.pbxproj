@@ -107,6 +107,7 @@
 				C924D7AE2386D1F9002ADF0C /* Base */,
 				C903E07C2389264C0083D079 /* Error */,
 				C903E07123890BFB0083D079 /* Entity */,
+				D9B531F923892A10005135EF /* Presentation */,
 				C924D7A12386C8DF002ADF0C /* Assets.xcassets */,
 				C924D7A32386C8DF002ADF0C /* LaunchScreen.storyboard */,
 				C924D7A62386C8DF002ADF0C /* Info.plist */,
@@ -131,6 +132,13 @@
 				5757F44FA2A96D93E1F511A1 /* Pods-Bookeun.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D9B531F923892A10005135EF /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +422,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74HR8KDU73;
 				INFOPLIST_FILE = Bookeun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,6 +442,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74HR8KDU73;
 				INFOPLIST_FILE = Bookeun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
