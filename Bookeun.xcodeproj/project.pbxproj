@@ -12,6 +12,9 @@
 		C903E07723890D330083D079 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07623890D330083D079 /* Exercise.swift */; };
 		C903E07B2389237C0083D079 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07A2389237C0083D079 /* View.swift */; };
 		C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0812389277C0083D079 /* UIView+Extension.swift */; };
+		C903E0852389330D0083D079 /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0842389330D0083D079 /* BarcodeViewController.swift */; };
+		C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0862389332A0083D079 /* BarcodePresenter.swift */; };
+		C903E089238933D00083D079 /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E088238933D00083D079 /* BarcodeView.swift */; };
 		C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7982386C8DD002ADF0C /* AppDelegate.swift */; };
 		C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D79C2386C8DD002ADF0C /* ViewController.swift */; };
 		C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A12386C8DF002ADF0C /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		C903E07623890D330083D079 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C903E07A2389237C0083D079 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		C903E0812389277C0083D079 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C903E0842389330D0083D079 /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
+		C903E0862389332A0083D079 /* BarcodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodePresenter.swift; sourceTree = "<group>"; };
+		C903E088238933D00083D079 /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C924D7982386C8DD002ADF0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C924D79C2386C8DD002ADF0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +72,16 @@
 				C903E07623890D330083D079 /* Exercise.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		C903E083238932BC0083D079 /* Barcode */ = {
+			isa = PBXGroup;
+			children = (
+				C903E0842389330D0083D079 /* BarcodeViewController.swift */,
+				C903E088238933D00083D079 /* BarcodeView.swift */,
+				C903E0862389332A0083D079 /* BarcodePresenter.swift */,
+			);
+			path = Barcode;
 			sourceTree = "<group>";
 		};
 		C924D78C2386C8DD002ADF0C = {
@@ -123,6 +139,7 @@
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C903E083238932BC0083D079 /* Barcode */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -261,10 +278,13 @@
 			files = (
 				C903E07323890C330083D079 /* Book.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
+				C903E0852389330D0083D079 /* BarcodeViewController.swift in Sources */,
 				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
+				C903E089238933D00083D079 /* BarcodeView.swift in Sources */,
 				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
+				C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */,
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
 			);
@@ -404,7 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74HR8KDU73;
+				DEVELOPMENT_TEAM = W3868KR87Z;
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

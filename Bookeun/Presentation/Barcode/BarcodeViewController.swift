@@ -45,7 +45,7 @@ class BarcodeViewController: ViewController {
         backButton.do {
             $0.contentMode = .scaleAspectFit
             $0.tintColor = .white
-            $0.backgroundColor = .white
+            $0.setImage(#imageLiteral(resourceName: "btnBack.pdf").withRenderingMode(.alwaysTemplate), for: .normal)
         }
     }
 
@@ -69,7 +69,7 @@ class BarcodeViewController: ViewController {
         backButton.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.left.equalToSuperview().offset(20)
-            $0.width.height.equalTo(30)
+            $0.height.equalTo(30)
         }
     }
 }
