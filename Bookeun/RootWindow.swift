@@ -11,10 +11,10 @@ import UIKit
 class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         self.rootViewController = ViewController()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
