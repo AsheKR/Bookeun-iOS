@@ -11,7 +11,6 @@ import UIKit
 class ExercisePresenter: PresenterProtocol {
     
     unowned let view: ExerciseViewController
-    let exercise: Exercise
     
     var countTimer: Timer!
     var timerCount: Int = 0
@@ -27,9 +26,8 @@ class ExercisePresenter: PresenterProtocol {
         }
     }
     
-    init(_ view: ExerciseViewController, _ exercise: Exercise) {
+    required init(view: ExerciseViewController) {
         self.view = view
-        self.exercise = exercise
     }
     
     func setExerciseInformation() {
