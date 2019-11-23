@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController<P: PresenterProtocol>: UIViewController, Nameable {
-    private(set) lazy var presenter = P.create(self)
+    private(set) lazy var presenter: P = { P(view: self as! P.View) }()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
