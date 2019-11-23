@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class ExercisePresenter: PresenterProtocol {
-    
+    typealias View = ExerciseViewController
     unowned let view: ExerciseViewController
+    required init(view: View) { self.view = view }
     
-    var countTimer: Timer!
+    let disposeBag = DisposeBag()
+    var exerciseList: [ExerciseWithCount]!
+    
+    var secondTimer: Timer!
+    var exerciseIndex: Int = 0
     var timerCount: Int = 0
     var readyCount: Int = 3
     var isReadyState: Bool = false {
@@ -26,18 +32,41 @@ class ExercisePresenter: PresenterProtocol {
         }
     }
     
-    required init(view: ExerciseViewController) {
-        self.view = view
+    func start() {
+        setExerciseList()
+        applyCurrentExercise()
+        startTimer()
     }
     
-    func setExerciseInformation() {
-        // TODO: ADD Set
-        view.setName(exercise.name, exercise.name)
+    func setExerciseList() {
+        guard let list = Store.share.exerciseList else {
+            view.presentErrorView()
+            return
+        }
+        self.exerciseList = list
     }
     
-    func getImages() {
-        // image 를 받은 후
-        countTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actionPerSecond(_:)), userInfo: nil, repeats: true)
+    func applyCurrentExercise() {
+        view.setExercise(exerciseList[exerciseIndex].exercise)
+    }
+    
+//    func increaseIndex() {
+//        let currentExercise = exerciseList[exerciseIndex]
+////        view.setName("", "")
+////        view.setExercise(currentExercise)
+//        exerciseIndex += 1
+//    }
+    
+    func startTimer() {
+//        Observable<Int>.interval(1.0, scheduler: MainScheduler.instance)
+//            .subscribe(onNext: { [unowned self] count in
+//                let exerciseImageURLs = self.exerciseList[self.exerciseIndex].exercise.imageURLs
+//                let currentIndex = (count % exerciseImageURLs.count)
+//                self.view.setExerciseImage(exerciseImageURLs[currentIndex])
+//            })
+//            .disposed(by: disposeBag)
+        secondTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actionPerSecond(_:)), userInfo: nil, repeats: true)
+        
     }
     
     func ready() {
@@ -53,26 +82,28 @@ class ExercisePresenter: PresenterProtocol {
     }
     
     func explainText(_ index: Int) -> String {
-        guard index < exercise.explainList.count else {
+        guard index < exerciseList[exerciseIndex].exercise.explainList.count else {
             return ""
         }
-        return exercise.explainList[index]
+        return exerciseList[exerciseIndex].exercise.explainList[index]
     }
     
     // MARK: - Objc
     
     @objc private func actionPerSecond(_ sender: Timer) {
+        let exercise = exerciseList[exerciseIndex].exercise
+        
         if !isReadyState {
             guard timerCount > 0 else {
                 return
             }
-            // 이미지 변경
+            // 이미지 변환
             if timerCount < exercise.imageURLs.count {
                 timerCount += 1
             } else {
                 timerCount = 0
             }
-            view.showMainImage(exercise.imageURLs[timerCount])
+            view.setExerciseImage(exercise.imageURLs[timerCount])
         } else {
             view.showReadyView(readyCount)
             readyCount -= 1

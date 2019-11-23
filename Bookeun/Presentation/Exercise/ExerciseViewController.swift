@@ -30,8 +30,7 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setExerciseInformation()
-        presenter.getImages()
+        presenter.start()
     }
     
     override func attribute() {
@@ -71,12 +70,13 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     }
     
     // Exercise Basic Info
-    func setName(_ name: String, _ englishName: String) {
-        nameLabel.text = name
-        englishNameLabel.text = englishName
+    func setExercise(_ exercise: Exercise) {
+        nameLabel.text = exercise.name
+        englishNameLabel.text = exercise.name
+        
     }
     
-    func showMainImage(_ imageURL: URL) {
+    func setExerciseImage(_ imageURL: URL) {
         exerciseGuideImageView.kf.setImage(with: imageURL)
     }
     
@@ -91,11 +91,15 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     func explainView(hide: Bool) {
         explainExerciseView.isHidden = hide
     }
+    
+    func presentErrorView() {
+        present(ErrorViewController(), animated: true, completion: nil)
+    }
 }
 
 extension ExerciseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.exercise.explainList.count
+        return presenter.exerciseList[presenter.exerciseIndex].exercise.explainList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
