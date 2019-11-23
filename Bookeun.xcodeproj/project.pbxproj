@@ -21,6 +21,9 @@
 		C903E095238951B60083D079 /* ExerciseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E094238951B60083D079 /* ExerciseRepository.swift */; };
 		C903E097238954310083D079 /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E096238954310083D079 /* ExerciseCategory.swift */; };
 		C903E099238959510083D079 /* RepositoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E098238959510083D079 /* RepositoryContainer.swift */; };
+		C903E09B238960A30083D079 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E09A238960A30083D079 /* Presenter.swift */; };
+		C903E09D238963C70083D079 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E09C238963C70083D079 /* EmptyViewController.swift */; };
+		C903E09F238963D20083D079 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E09E238963D20083D079 /* EmptyView.swift */; };
 		C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7982386C8DD002ADF0C /* AppDelegate.swift */; };
 		C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D79C2386C8DD002ADF0C /* ViewController.swift */; };
 		C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A12386C8DF002ADF0C /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		C903E094238951B60083D079 /* ExerciseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRepository.swift; sourceTree = "<group>"; };
 		C903E096238954310083D079 /* ExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
 		C903E098238959510083D079 /* RepositoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContainer.swift; sourceTree = "<group>"; };
+		C903E09A238960A30083D079 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		C903E09C238963C70083D079 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		C903E09E238963D20083D079 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C924D7982386C8DD002ADF0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C924D79C2386C8DD002ADF0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +93,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		C903E07C2389264C0083D079 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C903E07F238926640083D079 /* ErrorViewController.swift */,
+				C903E07D2389265B0083D079 /* ErrorView.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C903E08A238949C30083D079 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,15 +120,6 @@
 				C903E09023894C6B0083D079 /* BookeunAPI.swift */,
 			);
 			path = Network;
-            sourceTree = "<group>";
-        };
-		C903E07C2389264C0083D079 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				C903E07F238926640083D079 /* ErrorViewController.swift */,
-				C903E07D2389265B0083D079 /* ErrorView.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		C924D78C2386C8DD002ADF0C = {
@@ -155,7 +161,10 @@
 			isa = PBXGroup;
 			children = (
 				C924D79C2386C8DD002ADF0C /* ViewController.swift */,
+				C903E09C238963C70083D079 /* EmptyViewController.swift */,
 				C903E07A2389237C0083D079 /* View.swift */,
+				C903E09E238963D20083D079 /* EmptyView.swift */,
+				C903E09A238960A30083D079 /* Presenter.swift */,
 				C903E0812389277C0083D079 /* UIView+Extension.swift */,
 			);
 			path = Base;
@@ -310,10 +319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C903E09B238960A30083D079 /* Presenter.swift in Sources */,
 				C903E07323890C330083D079 /* Book.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
 				C903E099238959510083D079 /* RepositoryContainer.swift in Sources */,
+				C903E09D238963C70083D079 /* EmptyViewController.swift in Sources */,
 				C903E097238954310083D079 /* ExerciseCategory.swift in Sources */,
 				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
 				C903E08C23894B900083D079 /* TrainerRepository.swift in Sources */,
@@ -324,6 +335,7 @@
 				C903E095238951B60083D079 /* ExerciseRepository.swift in Sources */,
 				C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */,
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
+				C903E09F238963D20083D079 /* EmptyView.swift in Sources */,
 				C903E080238926640083D079 /* ErrorViewController.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
 				C903E07E2389265B0083D079 /* ErrorView.swift in Sources */,

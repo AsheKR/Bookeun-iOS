@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ErrorView: View {
+class ErrorView: EmptyView {
     let titleLabel = UILabel()
     let coverButton = UIButton()
 
