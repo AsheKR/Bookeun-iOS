@@ -17,6 +17,9 @@
 		C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A12386C8DF002ADF0C /* Assets.xcassets */; };
 		C924D7A52386C8DF002ADF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A32386C8DF002ADF0C /* LaunchScreen.storyboard */; };
 		C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7AC2386C905002ADF0C /* RootWindow.swift */; };
+		D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320123893632005135EF /* ExerciseViewController.swift */; };
+		D9B532052389364E005135EF /* ExerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B532042389364E005135EF /* ExerciseViewController.storyboard */; };
+		D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320623893674005135EF /* ExercisePresenter.swift */; };
 		E96ED9183118480A8101899A /* Pods_Bookeun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,9 @@
 		C924D7A42386C8DF002ADF0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C924D7A62386C8DF002ADF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C924D7AC2386C905002ADF0C /* RootWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindow.swift; sourceTree = "<group>"; };
+		D9B5320123893632005135EF /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		D9B532042389364E005135EF /* ExerciseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseViewController.storyboard; sourceTree = "<group>"; };
+		D9B5320623893674005135EF /* ExercisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenter.swift; sourceTree = "<group>"; };
 		F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookeun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,8 +129,19 @@
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D9B5320323893637005135EF /* Exercise */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D9B5320323893637005135EF /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				D9B5320123893632005135EF /* ExerciseViewController.swift */,
+				D9B5320623893674005135EF /* ExercisePresenter.swift */,
+				D9B532042389364E005135EF /* ExerciseViewController.storyboard */,
+			);
+			path = Exercise;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C924D7A52386C8DF002ADF0C /* LaunchScreen.storyboard in Resources */,
+				D9B532052389364E005135EF /* ExerciseViewController.storyboard in Resources */,
 				C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */,
 				C903E07323890C330083D079 /* Book.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
 				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
@@ -266,6 +285,7 @@
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
+				D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
