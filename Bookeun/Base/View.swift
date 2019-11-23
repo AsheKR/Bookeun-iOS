@@ -8,7 +8,9 @@
 
 import UIKit
 
-class View: UIView {
+class View<P: PresenterProtocol>: UIView {
+    private(set) var presenter: P!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -18,6 +20,7 @@ class View: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.presenter = P(view: self as! P.View)
         
         attribute()
         layout()

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ErrorView: View {
+class ErrorView: EmptyView {
     let titleLabel = UILabel()
     let coverButton = UIButton()
 
@@ -37,7 +37,7 @@ class ErrorView: View {
                     .paragraphStyle: lineSpacingStyle
                 ]
             )
-            $0.font = .systemFont(ofSize: 80, weight: .bold)
+            $0.font = .systemFont(ofSize: 70, weight: .bold)
             $0.adjustsFontSizeToFitWidth = true
             $0.numberOfLines = 3
         }

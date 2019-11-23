@@ -11,7 +11,7 @@ import UIKit
 class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.rootViewController = ViewController()
+        self.rootViewController = EmptyViewController()
     }
     
     required init?(coder: NSCoder) {
