@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C903E07323890C330083D079 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07223890C330083D079 /* Book.swift */; };
+		C903E07523890CCC0083D079 /* Trainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07423890CCC0083D079 /* Trainer.swift */; };
+		C903E07723890D330083D079 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07623890D330083D079 /* Exercise.swift */; };
 		C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7982386C8DD002ADF0C /* AppDelegate.swift */; };
 		C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D79C2386C8DD002ADF0C /* ViewController.swift */; };
 		C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A12386C8DF002ADF0C /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* Begin PBXFileReference section */
 		5757F44FA2A96D93E1F511A1 /* Pods-Bookeun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookeun.release.xcconfig"; path = "Target Support Files/Pods-Bookeun/Pods-Bookeun.release.xcconfig"; sourceTree = "<group>"; };
 		7679A9622CA7C65902D744EE /* Pods-Bookeun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookeun.debug.xcconfig"; path = "Target Support Files/Pods-Bookeun/Pods-Bookeun.debug.xcconfig"; sourceTree = "<group>"; };
+		C903E07223890C330083D079 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		C903E07423890CCC0083D079 /* Trainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trainer.swift; sourceTree = "<group>"; };
+		C903E07623890D330083D079 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C924D7952386C8DD002ADF0C /* 북근북근.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "북근북근.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C924D7982386C8DD002ADF0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C924D79C2386C8DD002ADF0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +54,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C903E07123890BFB0083D079 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C903E07223890C330083D079 /* Book.swift */,
+				C903E07423890CCC0083D079 /* Trainer.swift */,
+				C903E07623890D330083D079 /* Exercise.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		C924D78C2386C8DD002ADF0C = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +88,7 @@
 				C924D7982386C8DD002ADF0C /* AppDelegate.swift */,
 				C924D7AC2386C905002ADF0C /* RootWindow.swift */,
 				C924D7AE2386D1F9002ADF0C /* Base */,
+				C903E07123890BFB0083D079 /* Entity */,
 				C924D7A12386C8DF002ADF0C /* Assets.xcassets */,
 				C924D7A32386C8DF002ADF0C /* LaunchScreen.storyboard */,
 				C924D7A62386C8DF002ADF0C /* Info.plist */,
@@ -210,9 +227,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C903E07323890C330083D079 /* Book.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
 				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
 				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
+				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
+				C903E07723890D330083D079 /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
