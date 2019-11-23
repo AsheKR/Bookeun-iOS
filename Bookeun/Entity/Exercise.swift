@@ -25,10 +25,10 @@ extension Exercise: Codable {
         case exerciseTime = "exercise_time_ms"
         case imageURLs = "image_urls"
     }
-    
+
     init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         self.id = try value.decode(String.self, forKey: .id)
         self.name = try value.decode(String.self, forKey: .name)
         self.category = try value.decode(ExerciseCategory.self, forKey: .category)
