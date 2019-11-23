@@ -14,6 +14,9 @@
 		C903E07E2389265B0083D079 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07D2389265B0083D079 /* ErrorView.swift */; };
 		C903E080238926640083D079 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E07F238926640083D079 /* ErrorViewController.swift */; };
 		C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0812389277C0083D079 /* UIView+Extension.swift */; };
+		C903E0852389330D0083D079 /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0842389330D0083D079 /* BarcodeViewController.swift */; };
+		C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E0862389332A0083D079 /* BarcodePresenter.swift */; };
+		C903E089238933D00083D079 /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E088238933D00083D079 /* BarcodeView.swift */; };
 		C903E08C23894B900083D079 /* TrainerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E08B23894B900083D079 /* TrainerRepository.swift */; };
 		C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E08D23894BF10083D079 /* NetworkReposity.swift */; };
 		C903E09123894C6B0083D079 /* BookeunAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903E09023894C6B0083D079 /* BookeunAPI.swift */; };
@@ -44,6 +47,9 @@
 		C903E07D2389265B0083D079 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C903E07F238926640083D079 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		C903E0812389277C0083D079 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C903E0842389330D0083D079 /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
+		C903E0862389332A0083D079 /* BarcodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodePresenter.swift; sourceTree = "<group>"; };
+		C903E088238933D00083D079 /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 		C903E08B23894B900083D079 /* TrainerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRepository.swift; sourceTree = "<group>"; };
 		C903E08D23894BF10083D079 /* NetworkReposity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReposity.swift; sourceTree = "<group>"; };
 		C903E09023894C6B0083D079 /* BookeunAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookeunAPI.swift; sourceTree = "<group>"; };
@@ -98,6 +104,16 @@
 			);
 			path = Entity;
 			sourceTree = "<group>";
+		};
+		C903E083238932BC0083D079 /* Barcode */ = {
+			isa = PBXGroup;
+			children = (
+				C903E0842389330D0083D079 /* BarcodeViewController.swift */,
+				C903E088238933D00083D079 /* BarcodeView.swift */,
+				C903E0862389332A0083D079 /* BarcodePresenter.swift */,
+			);
+			path = Barcode;
+      sourceTree = "<group>";
 		};
 		C903E07C2389264C0083D079 /* Error */ = {
 			isa = PBXGroup;
@@ -188,6 +204,7 @@
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C903E083238932BC0083D079 /* Barcode */,
 				C903E07C2389264C0083D079 /* Error */,
 			);
 			path = Presentation;
@@ -330,6 +347,13 @@
 				C903E07323890C330083D079 /* Book.swift in Sources */,
 				CEAC129323899F4F008B69F7 /* ExerciseWithCount.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
+				C903E0852389330D0083D079 /* BarcodeViewController.swift in Sources */,
+				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
+				C903E089238933D00083D079 /* BarcodeView.swift in Sources */,
+				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
+				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
+				C903E07B2389237C0083D079 /* View.swift in Sources */,
+				C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
 				C903E099238959510083D079 /* RepositoryContainer.swift in Sources */,
 				C903E09D238963C70083D079 /* EmptyViewController.swift in Sources */,
