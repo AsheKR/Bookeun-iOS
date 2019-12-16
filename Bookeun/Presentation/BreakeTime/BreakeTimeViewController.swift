@@ -86,11 +86,10 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         }
         
         reviewReadingButton.do {
-            $0.backgroundColor = .tealishGreen
-            $0.layer.cornerRadius = 10
+            $0.tintColor = .tealishGreen
             $0.addTarget(self, action: #selector(readingButtonTapped), for: .touchUpInside)
             $0.setImage(#imageLiteral(resourceName: "SpeakingIcon").withRenderingMode(.alwaysTemplate), for: .normal)
-            $0.tintColor = .white
+            
             $0.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         }
         
