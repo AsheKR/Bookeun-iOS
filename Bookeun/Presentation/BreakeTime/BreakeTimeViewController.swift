@@ -87,8 +87,11 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         
         reviewReadingButton.do {
             $0.backgroundColor = .tealishGreen
+            $0.layer.cornerRadius = 10
             $0.addTarget(self, action: #selector(readingButtonTapped), for: .touchUpInside)
-            $0.setTitle("읽어주기", for: .normal)
+            $0.setImage(#imageLiteral(resourceName: "SpeakingIcon").withRenderingMode(.alwaysTemplate), for: .normal)
+            $0.tintColor = .white
+            $0.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         }
         
         backButton.do {
@@ -155,8 +158,8 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         reviewReadingButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
-            $0.width.equalTo(64)
-            $0.height.equalTo(64)
+            $0.width.equalTo(70)
+            $0.height.equalTo(70)
         }
     }
 }
