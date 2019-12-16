@@ -8,6 +8,8 @@ excluded:
 identifier_name:
   excluded:
   - id
+  - x
+  - y
 
 line_length:
   - 150 #warning
