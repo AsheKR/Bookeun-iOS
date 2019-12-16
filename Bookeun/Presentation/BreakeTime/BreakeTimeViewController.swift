@@ -110,11 +110,13 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(70)
             $0.left.right.equalToSuperview().inset(20)
+            $0.height.equalTo(43)
         }
         
         subTitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.left.right.equalToSuperview().inset(20)
+            $0.height.equalTo(19)
         }
         
         imageView.snp.makeConstraints {
@@ -123,8 +125,6 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
             $0.width.equalTo(imageView.snp.height)
             $0.centerX.equalToSuperview()
         }
-        imageView.setContentHuggingPriority(.init(rawValue: 0), for: .vertical)
-        imageView.setContentHuggingPriority(.init(rawValue: 0), for: .horizontal)
         
         reviewView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
