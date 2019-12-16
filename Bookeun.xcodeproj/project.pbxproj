@@ -32,6 +32,8 @@
 		C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A12386C8DF002ADF0C /* Assets.xcassets */; };
 		C924D7A52386C8DF002ADF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A32386C8DF002ADF0C /* LaunchScreen.storyboard */; };
 		C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7AC2386C905002ADF0C /* RootWindow.swift */; };
+		C97C60CF23A6158000A80876 /* BreakeTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97C60CE23A6158000A80876 /* BreakeTimeViewController.swift */; };
+		C985E27923A793CE004610C8 /* BreakeTimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */; };
 		CEAC126B23897878008B69F7 /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC126923897877008B69F7 /* Nameable.swift */; };
 		CEAC126C23897878008B69F7 /* CenterCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC126A23897877008B69F7 /* CenterCollectionLayout.swift */; };
 		CEAC1285238978BB008B69F7 /* ExerciseList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC127D238978BB008B69F7 /* ExerciseList.storyboard */; };
@@ -78,6 +80,8 @@
 		C924D7A42386C8DF002ADF0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C924D7A62386C8DF002ADF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C924D7AC2386C905002ADF0C /* RootWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindow.swift; sourceTree = "<group>"; };
+		C97C60CE23A6158000A80876 /* BreakeTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakeTimeViewController.swift; sourceTree = "<group>"; };
+		C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakeTimePresenter.swift; sourceTree = "<group>"; };
 		CEAC126923897877008B69F7 /* Nameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		CEAC126A23897877008B69F7 /* CenterCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCollectionLayout.swift; sourceTree = "<group>"; };
 		CEAC127D238978BB008B69F7 /* ExerciseList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExerciseList.storyboard; sourceTree = "<group>"; };
@@ -215,6 +219,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		C97C60CD23A6154B00A80876 /* BreakeTime */ = {
+			isa = PBXGroup;
+			children = (
+				C97C60CE23A6158000A80876 /* BreakeTimeViewController.swift */,
+				C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */,
+			);
+			path = BreakeTime;
+			sourceTree = "<group>";
+		};
 		CEAC126823897877008B69F7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +300,7 @@
 				C903E07C2389264C0083D079 /* Error */,
 				CEAC127C238978BB008B69F7 /* ExerciseList */,
 				CEAC127F238978BB008B69F7 /* SelectExercise */,
+				C97C60CD23A6154B00A80876 /* BreakeTime */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -438,6 +452,7 @@
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
 				C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
+				C985E27923A793CE004610C8 /* BreakeTimePresenter.swift in Sources */,
 				CEAC1288238978BB008B69F7 /* SelectExerciseViewController.swift in Sources */,
 				C903E099238959510083D079 /* RepositoryContainer.swift in Sources */,
 				C903E09D238963C70083D079 /* EmptyViewController.swift in Sources */,
@@ -454,6 +469,7 @@
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
 				CEAC12962389BDC6008B69F7 /* UIColor.swift in Sources */,
 				C903E095238951B60083D079 /* ExerciseRepository.swift in Sources */,
+				C97C60CF23A6158000A80876 /* BreakeTimeViewController.swift in Sources */,
 				CEAC1289238978BB008B69F7 /* SelectExerciseViewCell.swift in Sources */,
 				CEAC128F238989ED008B69F7 /* ExerciseListViewCell.swift in Sources */,
 				C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */,
@@ -600,7 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2YBHS36EVG;
+				DEVELOPMENT_TEAM = W3868KR87Z;
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -619,8 +635,8 @@
 			baseConfigurationReference = 5757F44FA2A96D93E1F511A1 /* Pods-Bookeun.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74HR8KDU73;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -629,6 +645,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lizardmon.Bookeun;
 				PRODUCT_NAME = "북근북근";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

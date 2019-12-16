@@ -67,8 +67,8 @@ class BarcodeViewController: EmptyViewController {
         }
 
         backButton.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.left.equalToSuperview().offset(20)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            $0.left.equalToSuperview().offset(15)
             $0.height.equalTo(30)
         }
     }
