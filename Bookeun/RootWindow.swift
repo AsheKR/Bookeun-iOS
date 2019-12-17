@@ -12,8 +12,10 @@ class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        // TODO: 초기뷰 변경 필요!
         let viewController = UIStoryboard(name: SelectExerciseViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: SelectExerciseViewController.identifier)
-        self.rootViewController = viewController
+        let navigation = UINavigationController(rootViewController: viewController)
+        self.rootViewController = navigation
     }
 
     required init?(coder: NSCoder) {
