@@ -17,8 +17,4 @@ class ExerciseExplainCell: UITableViewCell {
         numberLabel.text = String(number)
         explainTextLabel.text = explain
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
 }

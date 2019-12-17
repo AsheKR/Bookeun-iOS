@@ -58,7 +58,7 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     }
     
     @objc private func didTapExplainButton(_ sender: UIButton) {
-        presenter.explain()
+        presenter.explain(show: true)
     }
     
     @objc private func didTapReadyButton(_ sender: UIButton) {
@@ -66,18 +66,19 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     }
     
     @objc private func didTapCloseExplainButton(_ sender: UIButton) {
-        presenter.hideExplain()
+        presenter.explain(show: false)
     }
     
     // Exercise Basic Info
     func setExercise(_ exercise: Exercise) {
         nameLabel.text = exercise.name
         englishNameLabel.text = exercise.name
-        
     }
     
-    func setExerciseImage(_ imageURL: URL) {
-        exerciseGuideImageView.kf.setImage(with: imageURL)
+    func setExerciseImage(_ imageURL: URL?) {
+        if let imageURL = imageURL {
+            exerciseGuideImageView.kf.setImage(with: imageURL)
+        }
     }
     
     func showReadyView(_ count: Int) {
