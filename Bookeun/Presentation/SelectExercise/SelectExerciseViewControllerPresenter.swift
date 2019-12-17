@@ -19,15 +19,18 @@ class SelectExerciseViewControllerPresenter: PresenterProtocol {
     
     let disposeBag = DisposeBag()
     
-    var exerciseList: [Exercise]?
-    var categoryList: [ExerciseCategory]?
+    private var exerciseList: [Exercise]?
+    private var categoryList: [ExerciseCategory]?
+    
+    private(set) var filteredExerciseList: [Exercise] = []
+    private(set) var selectedExerciseList: [Exercise] = []
     
     private func fetchData(categoryList: [ExerciseCategory], exerciseList: [Exercise]) {
         self.categoryList = categoryList
         self.exerciseList = exerciseList
         
-        let filteredExerciseList = exerciseList.filter({ $0.id == categoryList.first?.id })
-        view.update(categoryList: categoryList, exerciseList: filteredExerciseList)
+        filteredExerciseList = exerciseList.filter({ $0.category.id == 1 })
+        view.update()
     }
 
     func request() {
@@ -36,7 +39,16 @@ class SelectExerciseViewControllerPresenter: PresenterProtocol {
             .disposed(by: disposeBag)
     }
     
-    func filterData(_ category: ExerciseCategory) -> [Exercise] {
-        return exerciseList?.filter({ $0.category.id == category.id }) ?? []
+    func filterData(_ index: Int) {
+        filteredExerciseList = exerciseList?.filter({ $0.category.id == index }) ?? []
+        view.update()
+    }
+    
+    func updateSelectedExerciseList(_ exercise: Exercise) {
+        if let selected = selectedExerciseList.first(where: { $0.id == exercise.id }) {
+            selectedExerciseList.removeAll(where: { $0.id == selected.id })
+        } else {
+            selectedExerciseList.append(exercise)
+        }
     }
 }

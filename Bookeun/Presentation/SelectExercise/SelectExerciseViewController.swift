@@ -92,20 +92,22 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
         setSelect(index, selected: true)
 
         selectedIndex = index
+        
+        presenter.filterData(selectedIndex + 1)
     }
     
     @IBAction private func actionNextButton(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ExerciseListViewController.identifier)
+        let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName,
+                                          bundle: nil).instantiateViewController(withIdentifier: ExerciseListViewController.identifier)
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
     
     func presentErrorView(error: Error) {
         present(ErrorViewController(), animated: true, completion: nil)
     }
     
-    func update(categoryList: [ExerciseCategory], exerciseList: [Exercise]) {
-        print("\(categoryList)")
+    func update() {
+        collectionView.reloadData()
     }
 }
 
@@ -120,19 +122,44 @@ extension SelectExerciseViewController: UICollectionViewDelegate {
         getCenterIndex(scrollView)
         scrollToCenter()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        
+        let cell = collectionView.cellForItem(at: indexPath) as? SelectExerciseViewCell
+        cell?.checkButton.isSelected.toggle()
+        
+        if indexPath.row < presenter.filteredExerciseList.count {
+            let exercise = presenter.filteredExerciseList[indexPath.row]
+            didTapButton(exercise)
+        }
+    }
 }
 
 extension SelectExerciseViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return presenter.filteredExerciseList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectExerciseViewCell.identifier, for: indexPath) as? SelectExerciseViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectExerciseViewCell.identifier,
+                                                            for: indexPath) as? SelectExerciseViewCell else {
             return UICollectionViewCell()
         }
+        let exercise = presenter.filteredExerciseList[indexPath.row]
+        let selected = presenter.selectedExerciseList.first(where: { $0.id == exercise.id })
+        
+        cell.delegate = self
+        cell.configure(exercise: exercise, checked: selected != nil)
         
         return cell
+    }
+}
+
+extension SelectExerciseViewController: SelectExerciseViewCellDelegate {
+    func didTapButton(_ exercise: Exercise?) {
+        guard let exercise = exercise else { return }
+        presenter.updateSelectedExerciseList(exercise)
     }
 }
