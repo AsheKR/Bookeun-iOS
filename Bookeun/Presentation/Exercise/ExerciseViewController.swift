@@ -26,7 +26,10 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     @IBOutlet weak var explainTableView: UITableView!
     @IBOutlet weak var closeExplainButton: UIButton!
     
-    // MARK: - Method
+    @IBOutlet weak var timerView: UIView!
+    @IBOutlet weak var timerCountLabel: UILabel!
+    
+    // MARK: - Common Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +60,8 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
         }
     }
     
+    // MARK: - Objc
+    
     @objc private func didTapExplainButton(_ sender: UIButton) {
         presenter.explain(show: true)
     }
@@ -67,6 +72,20 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     
     @objc private func didTapCloseExplainButton(_ sender: UIButton) {
         presenter.explain(show: false)
+    }
+    
+    // MARK: - Custom Method
+    
+    func readyView(hide: Bool) {
+        readyView.isHidden = hide
+    }
+    
+    func explainView(hide: Bool) {
+        explainExerciseView.isHidden = hide
+    }
+    
+    func timerView(hide: Bool) {
+        timerView.isHidden = hide
     }
     
     // Exercise Basic Info
@@ -81,16 +100,12 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
         }
     }
     
-    func showReadyView(_ count: Int) {
+    func showReadyCount(_ count: Int) {
         readyLabel.text = String(count)
     }
     
-    func readyView(hide: Bool) {
-        readyView.isHidden = hide
-    }
-    
-    func explainView(hide: Bool) {
-        explainExerciseView.isHidden = hide
+    func setTimerCount(_ count: Int) {
+        timerCountLabel.text = String(count)
     }
     
     func presentErrorView() {

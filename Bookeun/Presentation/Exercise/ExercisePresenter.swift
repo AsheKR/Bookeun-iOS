@@ -98,15 +98,15 @@ class ExercisePresenter: PresenterProtocol {
     // MARK: - Objc
     
     @objc private func actionPerSecond(_ sender: Timer) {
-        print("action per second , readyCount: \(readyCount) , exerciseImageIndex: \(exerciseImageIndex)")
         let exercise = exerciseList[exerciseIndex].exercise
         
         if isReadyState {
-            view.showReadyView(readyCount)
+            view.showReadyCount(readyCount)
             readyCount -= 1
             if readyCount < 0 {
                 readyCount = 3
                 isReadyState = false
+                view.timerView(hide: false)
             }
         } else {
             // Exercise Images
@@ -118,13 +118,15 @@ class ExercisePresenter: PresenterProtocol {
             }
             exerciseImageIndex += 1
             
-            // view.showTimer
+            // Timer
+            view.setTimerCount(timerCount)
             timerCount -= 1
             
-            if timerCount == 0 {
-                // END Phase
+            if timerCount < 0 {
                 secondTimer.invalidate()
                 view.setExerciseImage(defaultImageURL)
+                view.timerView(hide: true)
+                // TODO: END Phase
             }
         }
     }
