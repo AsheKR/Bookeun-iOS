@@ -127,12 +127,9 @@
 		C903E07123890BFB0083D079 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				D918537523A8D4350033CA75 /* Exercise */,
 				C903E07223890C330083D079 /* Book.swift */,
 				C903E07423890CCC0083D079 /* Trainer.swift */,
-				C903E07623890D330083D079 /* Exercise.swift */,
-				C903E096238954310083D079 /* ExerciseCategory.swift */,
-				CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */,
-				D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */,
 				CEAC129023899EB5008B69F7 /* Store.swift */,
 			);
 			path = Entity;
@@ -289,6 +286,17 @@
 				5757F44FA2A96D93E1F511A1 /* Pods-Bookeun.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D918537523A8D4350033CA75 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				C903E07623890D330083D079 /* Exercise.swift */,
+				C903E096238954310083D079 /* ExerciseCategory.swift */,
+				CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */,
+				D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */,
+			);
+			path = Exercise;
 			sourceTree = "<group>";
 		};
 		D9B531F923892A10005135EF /* Presentation */ = {
