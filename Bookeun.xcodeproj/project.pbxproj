@@ -44,11 +44,12 @@
 		CEAC128F238989ED008B69F7 /* ExerciseListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC128E238989ED008B69F7 /* ExerciseListViewCell.swift */; };
 		CEAC129123899EB5008B69F7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC129023899EB5008B69F7 /* Store.swift */; };
 		CEAC129323899F4F008B69F7 /* ExerciseWithCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */; };
+		CEAC12962389BDC6008B69F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC12952389BDC6008B69F7 /* UIColor.swift */; };
+		D918537423A8D1B00033CA75 /* ExerciseImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */; };
 		D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320123893632005135EF /* ExerciseViewController.swift */; };
 		D9B532052389364E005135EF /* ExerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B532042389364E005135EF /* ExerciseViewController.storyboard */; };
 		D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320623893674005135EF /* ExercisePresenter.swift */; };
 		D9B5320B23897EC5005135EF /* ExerciseExplainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */; };
-		CEAC12962389BDC6008B69F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC12952389BDC6008B69F7 /* UIColor.swift */; };
 		E96ED9183118480A8101899A /* Pods_Bookeun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,11 +95,12 @@
 		CEAC128E238989ED008B69F7 /* ExerciseListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewCell.swift; sourceTree = "<group>"; };
 		CEAC129023899EB5008B69F7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseWithCount.swift; sourceTree = "<group>"; };
+		CEAC12952389BDC6008B69F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImageUrl.swift; sourceTree = "<group>"; };
 		D9B5320123893632005135EF /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		D9B532042389364E005135EF /* ExerciseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseViewController.storyboard; sourceTree = "<group>"; };
 		D9B5320623893674005135EF /* ExercisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenter.swift; sourceTree = "<group>"; };
 		D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExplainCell.swift; sourceTree = "<group>"; };
-		CEAC12952389BDC6008B69F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookeun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				C903E07623890D330083D079 /* Exercise.swift */,
 				C903E096238954310083D079 /* ExerciseCategory.swift */,
 				CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */,
+				D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */,
 				CEAC129023899EB5008B69F7 /* Store.swift */,
 			);
 			path = Entity;
@@ -459,6 +462,7 @@
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
 				C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */,
+				D918537423A8D1B00033CA75 /* ExerciseImageUrl.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
 				CEAC1288238978BB008B69F7 /* SelectExerciseViewController.swift in Sources */,
 				C903E099238959510083D079 /* RepositoryContainer.swift in Sources */,

@@ -103,7 +103,10 @@ class ExercisePresenter: PresenterProtocol {
             } else {
                 timerCount = 0
             }
-            view.setExerciseImage(exercise.imageURLs[timerCount])
+            if let imageURL = URL(string: exercise.imageURLs[timerCount].url) {
+                view.setExerciseImage(imageURL)
+            }
+            
         } else {
             view.showReadyView(readyCount)
             readyCount -= 1
