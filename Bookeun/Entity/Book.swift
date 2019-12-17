@@ -9,7 +9,7 @@
 import Foundation
 
 struct Book {
-    let id: String
+    let id: Int
     let name: String
     let coverImageURL: URL
     let author: String

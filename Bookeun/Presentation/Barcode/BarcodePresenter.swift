@@ -1,5 +1,5 @@
 //
-//  ExerciseCategory.swift
+//  BarcodePresenter.swift
 //  Bookeun
 //
 //  Created by 이병찬 on 2019/11/23.
@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-struct ExerciseCategory: Codable {
-    let id: Int
-    let name: String
-}

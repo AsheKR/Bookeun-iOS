@@ -12,4 +12,8 @@ extension UIView {
     func addSubviews(_ views: UIView...) {
         views.forEach(addSubview)
     }
+    
+    func bringSubviewsToFront(_ views: UIView...) {
+        views.forEach(bringSubviewToFront)
+    }
 }

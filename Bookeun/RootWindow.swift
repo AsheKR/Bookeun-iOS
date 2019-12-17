@@ -11,7 +11,17 @@ import UIKit
 class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         self.rootViewController = EmptyViewController()
+        
+        Repo.shared.exercise.getExerciseList()
+            .map { list in
+                list.map { exc in ExerciseWithCount.init(exercise: exc, count: 3) }
+            }
+            .subscribe(onSuccess: { [unowned self] list in
+                Store.share.setExerciseList(list)
+                self.rootViewController = UIStoryboard(name: "ExerciseViewController", bundle: nil).instantiateInitialViewController() as! ExerciseViewController
+            })
     }
     
     required init?(coder: NSCoder) {
