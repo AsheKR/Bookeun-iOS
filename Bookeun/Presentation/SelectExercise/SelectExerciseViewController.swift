@@ -97,8 +97,9 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     }
     
     @IBAction private func actionNextButton(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName,
-                                          bundle: nil).instantiateViewController(withIdentifier: ExerciseListViewController.identifier)
+        guard let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil)
+                                    .instantiateViewController(withIdentifier: ExerciseListViewController.identifier) as? ExerciseListViewController else { return }
+        viewController.presenter.selectedExerciseList = presenter.selectedExerciseList
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -158,6 +159,7 @@ extension SelectExerciseViewController: UICollectionViewDataSource {
 }
 
 extension SelectExerciseViewController: SelectExerciseViewCellDelegate {
+    
     func didTapButton(_ exercise: Exercise?) {
         guard let exercise = exercise else { return }
         presenter.updateSelectedExerciseList(exercise)

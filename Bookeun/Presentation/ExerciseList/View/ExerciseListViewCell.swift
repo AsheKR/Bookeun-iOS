@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ExerciseListViewCellDelegate: class {
+    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int)
+}
+
 class ExerciseListViewCell: UITableViewCell, Nameable {
 
     @IBOutlet private weak var contentContainerView: UIView!
@@ -18,6 +22,8 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
     @IBOutlet private weak var countLabel: UILabel!
     @IBOutlet private weak var totalDurationContainerView: UIView!
     @IBOutlet private weak var totalDurationLabel: UILabel!
+    
+    weak var delegate: ExerciseListViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,25 +37,35 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
         totalDurationContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
     }
     
+    private func makeTime() -> Int {
+        let timeText = timeLabel.text?.split(separator: "분").first ?? ""
+        return Int(timeText) ?? 1
+    }
+    
     private func updateTotalDuration(_ count: Int) {
-        let timeText = timeLabel.text ?? ""
-        let time = Int(timeText) ?? 1
+        let time = makeTime()
         totalDurationLabel.text = "총 \(count * time)분"
     }
     
     @IBAction private func actionTapButton(_ sender: UIButton) {
         if let countText = countLabel.text, let count = Int(countText) {
-            var countText: String = ""
             var newCount: Int = 0
             if sender.tag == 1111 {
-                newCount = count - 1
-                countText = newCount < 1 ? "1" : "\(newCount)"
+                newCount = count < 2 ? 1 : count - 1
             } else if sender.tag == 2222 {
                 newCount = count + 1
-                countText = "\(newCount)"
             }
-            countLabel.text = countText
+            countLabel.text = "\(newCount)"
             updateTotalDuration(newCount)
+            
+            delegate?.didUpdateDuration(oldCount: count, newCount: newCount, time: makeTime())
         }
+    }
+    
+    func configure(_ exercise: Exercise) {
+        categoryLabel.text = exercise.category.name
+        exerciseLabel.text = exercise.name
+        timeLabel.text = "\(exercise.exerciseTime ?? 2)분"
+        updateTotalDuration(3)
     }
 }

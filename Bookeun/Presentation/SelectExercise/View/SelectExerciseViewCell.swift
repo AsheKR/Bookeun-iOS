@@ -38,6 +38,11 @@ class SelectExerciseViewCell: UICollectionViewCell, Nameable {
         gradeViews.forEach({ $0.layer.cornerRadius = $0.bounds.height / 2 })
     }
     
+    @IBAction private func actionSelect(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        delegate?.didTapButton(exercise)
+    }
+    
     func configure(exercise: Exercise, checked: Bool) {
         self.exercise = exercise
         checkButton.isSelected = checked
@@ -45,10 +50,5 @@ class SelectExerciseViewCell: UICollectionViewCell, Nameable {
         nameLabel.text = exercise.name
         durationLabel.text = "\(exercise.exerciseTime ?? 0) 분"
         calorieLabel.text = "\(exercise.calorie ?? 0) 칼로리"
-    }
-    
-    @IBAction private func actionSelect(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        delegate?.didTapButton(exercise)
     }
 }
