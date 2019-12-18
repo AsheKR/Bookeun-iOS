@@ -76,15 +76,15 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     
     // MARK: - Custom Method
     
-    func readyView(hide: Bool) {
+    func setReadyView(hide: Bool) {
         readyView.isHidden = hide
     }
     
-    func explainView(hide: Bool) {
+    func setExplainView(hide: Bool) {
         explainExerciseView.isHidden = hide
     }
     
-    func timerView(hide: Bool) {
+    func setTimerView(hide: Bool) {
         timerView.isHidden = hide
     }
     
@@ -94,10 +94,8 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
         englishNameLabel.text = exercise.name
     }
     
-    func setExerciseImage(_ imageURL: URL?) {
-        if let imageURL = imageURL {
-            exerciseGuideImageView.kf.setImage(with: imageURL)
-        }
+    func setExerciseImage(_ imageURL: URL) {
+        exerciseGuideImageView.kf.setImage(with: imageURL)
     }
     
     func showReadyCount(_ count: Int) {

@@ -25,23 +25,22 @@ class ExercisePresenter: PresenterProtocol {
     var exerciseImageIndex = 0
     var isReadyState: Bool = false {
         didSet {
-            view.readyView(hide: !isReadyState)
+            view.setReadyView(hide: !isReadyState)
         }
     }
     var isExplainState: Bool = false {
         didSet {
-            view.explainView(hide: !isExplainState)
+            view.setExplainView(hide: !isExplainState)
         }
     }
     
-    var defaultImageURL: URL? {
-        return URL(string: exerciseList[exerciseIndex].exercise.imageURLs[0].url)
+    var defaultImageURLString: String {
+        return exerciseList[exerciseIndex].exercise.imageURLs[0].url
     }
     
     func start() {
         setExerciseList()
         applyCurrentExercise()
-//        startTimer()
     }
     
     func setExerciseList() {
@@ -54,17 +53,11 @@ class ExercisePresenter: PresenterProtocol {
     
     func applyCurrentExercise() {
         view.setExercise(exerciseList[exerciseIndex].exercise)
-        view.setExerciseImage(defaultImageURL)
+        setExerciseImage(defaultImageURLString)
     }
     
-//    func increaseIndex() {
-//        let currentExercise = exerciseList[exerciseIndex]
-////        view.setName("", "")
-////        view.setExercise(currentExercise)
-//        exerciseIndex += 1
-//    }
-    
     func startTimer() {
+        // TODO: RxSwift
 //        Observable<Int>.interval(1.0, scheduler: MainScheduler.instance)
 //            .subscribe(onNext: { [unowned self] count in
 //                let exerciseImageURLs = self.exerciseList[self.exerciseIndex].exercise.imageURLs
@@ -90,9 +83,17 @@ class ExercisePresenter: PresenterProtocol {
     
     func explainText(_ index: Int) -> String {
         guard index < exerciseList[exerciseIndex].exercise.explainList.count else {
-            return ""
+            return "설명이 없습니다."
         }
         return exerciseList[exerciseIndex].exercise.explainList[index]
+    }
+    
+    func setExerciseImage(_ imageURLString: String) {
+        guard let imageURL = URL(string: imageURLString) else {
+            view.presentErrorView()
+            return
+        }
+        view.setExerciseImage(imageURL)
     }
     
     // MARK: - Objc
@@ -106,16 +107,14 @@ class ExercisePresenter: PresenterProtocol {
             if readyCount < 0 {
                 readyCount = 3
                 isReadyState = false
-                view.timerView(hide: false)
+                view.setTimerView(hide: false)
             }
         } else {
             // Exercise Images
             if exerciseImageIndex == exercise.imageURLs.count {
                 exerciseImageIndex = 0
             }
-            if let imageURL = URL(string: exercise.imageURLs[exerciseImageIndex].url) {
-                view.setExerciseImage(imageURL)
-            }
+            setExerciseImage(exercise.imageURLs[exerciseImageIndex].url)
             exerciseImageIndex += 1
             
             // Timer
@@ -124,8 +123,8 @@ class ExercisePresenter: PresenterProtocol {
             
             if timerCount < 0 {
                 secondTimer.invalidate()
-                view.setExerciseImage(defaultImageURL)
-                view.timerView(hide: true)
+                setExerciseImage(defaultImageURLString)
+                view.setTimerView(hide: true)
                 // TODO: END Phase
             }
         }
