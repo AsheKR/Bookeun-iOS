@@ -51,6 +51,11 @@
 		CEAC129123899EB5008B69F7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC129023899EB5008B69F7 /* Store.swift */; };
 		CEAC129323899F4F008B69F7 /* ExerciseWithCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */; };
 		CEAC12962389BDC6008B69F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC12952389BDC6008B69F7 /* UIColor.swift */; };
+		D918537423A8D1B00033CA75 /* ExerciseImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */; };
+		D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320123893632005135EF /* ExerciseViewController.swift */; };
+		D9B532052389364E005135EF /* ExerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B532042389364E005135EF /* ExerciseViewController.storyboard */; };
+		D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320623893674005135EF /* ExercisePresenter.swift */; };
+		D9B5320B23897EC5005135EF /* ExerciseExplainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */; };
 		E96ED9183118480A8101899A /* Pods_Bookeun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +108,11 @@
 		CEAC129023899EB5008B69F7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseWithCount.swift; sourceTree = "<group>"; };
 		CEAC12952389BDC6008B69F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImageUrl.swift; sourceTree = "<group>"; };
+		D9B5320123893632005135EF /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		D9B532042389364E005135EF /* ExerciseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseViewController.storyboard; sourceTree = "<group>"; };
+		D9B5320623893674005135EF /* ExercisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenter.swift; sourceTree = "<group>"; };
+		D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExplainCell.swift; sourceTree = "<group>"; };
 		F6A547036C2869CC295FB5A0 /* Pods_Bookeun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookeun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,11 +139,9 @@
 		C903E07123890BFB0083D079 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				D918537523A8D4350033CA75 /* Exercise */,
 				C903E07223890C330083D079 /* Book.swift */,
 				C903E07423890CCC0083D079 /* Trainer.swift */,
-				C903E07623890D330083D079 /* Exercise.swift */,
-				C903E096238954310083D079 /* ExerciseCategory.swift */,
-				CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */,
 				CEAC129023899EB5008B69F7 /* Store.swift */,
 			);
 			path = Entity;
@@ -320,9 +328,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D918537523A8D4350033CA75 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				C903E07623890D330083D079 /* Exercise.swift */,
+				C903E096238954310083D079 /* ExerciseCategory.swift */,
+				CEAC129223899F4F008B69F7 /* ExerciseWithCount.swift */,
+				D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D9B5320323893637005135EF /* Exercise */,
 				C9882C272389750500180486 /* Trainer */,
 				C903E083238932BC0083D079 /* Barcode */,
 				C903E07C2389264C0083D079 /* Error */,
@@ -331,6 +351,17 @@
 				C97C60CD23A6154B00A80876 /* BreakeTime */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D9B5320323893637005135EF /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				D9B5320123893632005135EF /* ExerciseViewController.swift */,
+				D9B5320623893674005135EF /* ExercisePresenter.swift */,
+				D9B532042389364E005135EF /* ExerciseViewController.storyboard */,
+				D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */,
+			);
+			path = Exercise;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +427,7 @@
 			files = (
 				CEAC1287238978BB008B69F7 /* SelectExercise.storyboard in Resources */,
 				C924D7A52386C8DF002ADF0C /* LaunchScreen.storyboard in Resources */,
+				D9B532052389364E005135EF /* ExerciseViewController.storyboard in Resources */,
 				CEAC1285238978BB008B69F7 /* ExerciseList.storyboard in Resources */,
 				C924D7A22386C8DF002ADF0C /* Assets.xcassets in Resources */,
 			);
@@ -467,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */,
 				CEAC129123899EB5008B69F7 /* Store.swift in Sources */,
 				C903E09B238960A30083D079 /* Presenter.swift in Sources */,
 				C903E07323890C330083D079 /* Book.swift in Sources */,
@@ -480,6 +513,7 @@
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
 				C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */,
+				D918537423A8D1B00033CA75 /* ExerciseImageUrl.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
 				C985E27923A793CE004610C8 /* BreakeTimePresenter.swift in Sources */,
 				CEAC1288238978BB008B69F7 /* SelectExerciseViewController.swift in Sources */,
@@ -505,8 +539,10 @@
 				CEAC128F238989ED008B69F7 /* ExerciseListViewCell.swift in Sources */,
 				C903E08E23894BF10083D079 /* NetworkReposity.swift in Sources */,
 				C903E07723890D330083D079 /* Exercise.swift in Sources */,
+				D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */,
 				C903E09F238963D20083D079 /* EmptyView.swift in Sources */,
 				C903E080238926640083D079 /* ErrorViewController.swift in Sources */,
+				D9B5320B23897EC5005135EF /* ExerciseExplainCell.swift in Sources */,
 				C9882C292389751A00180486 /* TrainerSelectViewController.swift in Sources */,
 				C903E0822389277C0083D079 /* UIView+Extension.swift in Sources */,
 				CEAC126B23897878008B69F7 /* Nameable.swift in Sources */,
@@ -658,7 +694,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lizardmon.Bookeun;
 				PRODUCT_NAME = "북근북근";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -679,7 +715,7 @@
 				PRODUCT_NAME = "북근북근";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

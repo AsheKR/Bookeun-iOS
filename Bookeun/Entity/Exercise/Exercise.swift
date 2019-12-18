@@ -11,20 +11,22 @@ import Foundation
 struct Exercise {
     let id: Int
     let name: String
+    let englishName: String
     let category: ExerciseCategory
-    let exerciseTime: Int
-    let calorie: Int
-    let power: ExercisePower
+    let exerciseTime: Int?
+    let calorie: Int?
+    let power: ExercisePower?
     let explainList: [String]
-    let imageURLs: [URL]
+    let imageURLs: [ExerciseImageURL]
 }
 
 extension Exercise: Codable {
     enum CodingKeys: String, CodingKey {
         case id, name, category, calorie, power
+        case englishName = "english_name"
         case explainList = "descriptions"
-        case exerciseTime = "exercise_time"
-        case imageURLs = "image_urls"
+        case exerciseTime = "time"
+        case imageURLs = "images"
     }
 }
 
