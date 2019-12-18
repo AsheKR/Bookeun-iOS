@@ -14,7 +14,7 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var englishNameLabel: UILabel!
-    @IBOutlet weak var setExplainView: UIView!
+    @IBOutlet weak var hideExplainView: UIView!
     @IBOutlet weak var exerciseGuideImageView: UIImageView!
     @IBOutlet weak var explainExerciseButton: UIButton!
     @IBOutlet weak var readyButton: UIButton!
@@ -33,11 +33,11 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.start()
+        presenter.setUpView()
     }
     
     override func attribute() {
-        setExplainView.do {
+        hideExplainView.do {
             $0.layer.cornerRadius = 17.0
         }
         explainExerciseButton.do {
@@ -63,28 +63,28 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     // MARK: - Objc
     
     @objc private func didTapExplainButton(_ sender: UIButton) {
-        presenter.explain(show: true)
+        presenter.showExplain(show: true)
     }
     
     @objc private func didTapReadyButton(_ sender: UIButton) {
-        presenter.ready()
+        presenter.start()
     }
     
     @objc private func didTapCloseExplainButton(_ sender: UIButton) {
-        presenter.explain(show: false)
+        presenter.showExplain(show: false)
     }
     
     // MARK: - Custom Method
     
-    func setReadyView(hide: Bool) {
+    func hideReadyView(hide: Bool) {
         readyView.isHidden = hide
     }
     
-    func setExplainView(hide: Bool) {
+    func hideExplainView(hide: Bool) {
         explainExerciseView.isHidden = hide
     }
     
-    func setTimerView(hide: Bool) {
+    func hideTimerView(hide: Bool) {
         timerView.isHidden = hide
     }
     

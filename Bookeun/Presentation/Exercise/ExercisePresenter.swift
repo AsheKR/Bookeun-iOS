@@ -25,22 +25,23 @@ class ExercisePresenter: PresenterProtocol {
     var exerciseImageIndex = 0
     var isReadyState: Bool = false {
         didSet {
-            view.setReadyView(hide: !isReadyState)
+            view.hideReadyView(hide: !isReadyState)
         }
     }
     var isExplainState: Bool = false {
         didSet {
-            view.setExplainView(hide: !isExplainState)
+            view.hideExplainView(hide: !isExplainState)
         }
     }
     
-    var defaultImageURLString: String {
+    var currentExerciseImageURLString: String {
         return exerciseList[exerciseIndex].exercise.imageURLs[0].url
     }
     
-    func start() {
+    // 처음에 시작될때 운동을 View에 보여주는 역할
+    func setUpView() {
         setExerciseList()
-        applyCurrentExercise()
+        setCurrentExercise()
     }
     
     func setExerciseList() {
@@ -51,9 +52,9 @@ class ExercisePresenter: PresenterProtocol {
         self.exerciseList = list
     }
     
-    func applyCurrentExercise() {
+    func setCurrentExercise() {
         view.setExercise(exerciseList[exerciseIndex].exercise)
-        setExerciseImage(defaultImageURLString)
+        setExerciseImage(currentExerciseImageURLString)
     }
     
     func startTimer() {
@@ -68,12 +69,12 @@ class ExercisePresenter: PresenterProtocol {
         secondTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actionPerSecond(_:)), userInfo: nil, repeats: true)
     }
     
-    func ready() {
+    func start() {
         isReadyState = true
         startTimer()
     }
     
-    func explain(show: Bool) {
+    func showExplain(show: Bool) {
         if show {
             isExplainState = true
         } else {
@@ -107,7 +108,7 @@ class ExercisePresenter: PresenterProtocol {
             if readyCount < 0 {
                 readyCount = 3
                 isReadyState = false
-                view.setTimerView(hide: false)
+                view.hideTimerView(hide: false)
             }
         } else {
             // Exercise Images
@@ -123,8 +124,8 @@ class ExercisePresenter: PresenterProtocol {
             
             if timerCount < 0 {
                 secondTimer.invalidate()
-                setExerciseImage(defaultImageURLString)
-                view.setTimerView(hide: true)
+                setExerciseImage(currentExerciseImageURLString)
+                view.hideTimerView(hide: true)
                 // TODO: END Phase
             }
         }
