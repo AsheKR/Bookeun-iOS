@@ -50,12 +50,12 @@ class ViewController<P: PresenterProtocol>: UIViewController, Nameable {
         backButtonItem.tintColor = .black
         navigationItem.setLeftBarButton(backButtonItem, animated: false)
         
-        navigationController?.navigationBar.do({
+        navigationController?.navigationBar.do {
             $0.backgroundColor = .clear
             $0.barTintColor = .white
             $0.shadowImage = UIImage()
             $0.isTranslucent = false  
-        })
+        }
     }
     
     @objc private func actionBackButton(_ sender: UIButton) {
