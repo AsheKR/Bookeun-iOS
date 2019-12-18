@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SelectExerciseViewCellDelegate: class {
-    func didTapButton(_ exercise: Exercise?)
+    func didTap(_ exercise: Exercise?)
 }
 
 class SelectExerciseViewCell: UICollectionViewCell, Nameable {
@@ -35,12 +35,12 @@ class SelectExerciseViewCell: UICollectionViewCell, Nameable {
         contentContainerView.layer.borderWidth = 2.0
         contentContainerView.layer.borderColor = UIColor.black.cgColor
         
-        gradeViews.forEach({ $0.layer.cornerRadius = $0.bounds.height / 2 })
+        gradeViews.forEach { $0.layer.cornerRadius = $0.bounds.height / 2 }
     }
     
-    @IBAction private func actionSelect(_ sender: UIButton) {
+    @IBAction private func didTap(_ sender: UIButton) {
         sender.isSelected.toggle()
-        delegate?.didTapButton(exercise)
+        delegate?.didTap(exercise)
     }
     
     func configure(exercise: Exercise, checked: Bool) {

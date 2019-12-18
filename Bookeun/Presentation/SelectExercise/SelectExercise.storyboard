@@ -124,11 +124,11 @@
                                                                     <rect key="frame" x="30" y="20" width="155" height="223"/>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic6-lJ-J2U">
-                                                                    <rect key="frame" x="163" y="15" width="32" height="32"/>
+                                                                    <rect key="frame" x="131" y="15" width="64" height="64"/>
                                                                     <state key="normal" image="btnCheckColor"/>
                                                                     <state key="selected" image="btnCheckColorCopy"/>
                                                                     <connections>
-                                                                        <action selector="actionSelect:" destination="NBr-dx-TNp" eventType="touchUpInside" id="2O4-vK-ZSn"/>
+                                                                        <action selector="didTap:" destination="NBr-dx-TNp" eventType="touchUpInside" id="rjm-5j-zQb"/>
                                                                     </connections>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quc-Kp-iaE">
@@ -311,7 +311,6 @@
         <!--Select Exercise View Controller-->
         <scene sceneID="3gD-jU-kha">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ozM-VP-fIb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="juv-Eh-WaQ" customClass="SelectExerciseViewController" customModule="북근북근" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YbR-5Z-VQo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -415,12 +414,9 @@
                                                                     <rect key="frame" x="30" y="20" width="155" height="223"/>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGu-py-CT0">
-                                                                    <rect key="frame" x="163" y="15" width="32" height="32"/>
+                                                                    <rect key="frame" x="131" y="15" width="64" height="64"/>
                                                                     <state key="normal" image="btnCheckColor"/>
                                                                     <state key="selected" image="btnCheckColorCopy"/>
-                                                                    <connections>
-                                                                        <action selector="actionSelecte:" destination="qlt-Nm-TBl" eventType="touchUpInside" id="Qml-nj-zHZ"/>
-                                                                    </connections>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKs-6l-XzZ">
                                                                     <rect key="frame" x="0.0" y="253" width="215" height="135"/>
@@ -536,7 +532,6 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="217" height="390"/>
                                         <connections>
-                                            <outlet property="checkButton" destination="bGu-py-CT0" id="9Qf-zk-Atm"/>
                                             <outlet property="contentContainerView" destination="Syb-xm-QW4" id="Bvl-LL-MvU"/>
                                             <outlet property="titleContainerView" destination="TKs-6l-XzZ" id="kv6-UO-7nf"/>
                                             <outletCollection property="gradeViews" destination="qPK-dv-Byn" collectionClass="NSMutableArray" id="Y03-hd-KEb"/>
@@ -594,6 +589,7 @@
                         <outletCollection property="tabButtons" destination="xc4-ZX-hCz" collectionClass="NSMutableArray" id="taH-J2-1WG"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozM-VP-fIb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="629" y="192"/>
         </scene>

@@ -19,18 +19,18 @@ class ExerciseListViewController: ViewController<ExerciseListViewControllerPrese
     @IBOutlet private weak var setCountLabel: UILabel!
     @IBOutlet private var menuViews: [UIView]!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         presenter.updateTotalDuration()
     }
     
     override func attribute() {
-        menuViews.forEach({ $0.layer.cornerRadius = $0.bounds.height / 2 })
+        menuViews.forEach { $0.layer.cornerRadius = $0.bounds.height / 2 }
         nextButton.layer.cornerRadius = nextButton.bounds.height / 2
     }
     
-    func updateTotalDuration() {
+    func updateTotalDuration(name: String, duration: String, set: String) {
         categoriesLabel.text = presenter.selectedExerciseList.compactMap({ $0.category.name })
                                                             .joined(separator: ",")
         durationLabel.text = "\(presenter.exerciseTime.duration)분"

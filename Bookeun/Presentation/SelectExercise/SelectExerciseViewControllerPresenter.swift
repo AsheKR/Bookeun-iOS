@@ -25,11 +25,11 @@ class SelectExerciseViewControllerPresenter: PresenterProtocol {
     private(set) var filteredExerciseList: [Exercise] = []
     private(set) var selectedExerciseList: [Exercise] = []
     
-    private func fetchData(categoryList: [ExerciseCategory], exerciseList: [Exercise]) {
-        self.categoryList = categoryList
-        self.exerciseList = exerciseList
+    private func fetchData(categorys: [ExerciseCategory], exercises: [Exercise]) {
+        categoryList = categorys
+        exerciseList = exercises
         
-        filteredExerciseList = exerciseList.filter({ $0.category.id == 1 })
+        filteredExerciseList = exercises.filter { $0.category.id == 1 }
         view.update()
     }
 

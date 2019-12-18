@@ -132,7 +132,7 @@ extension SelectExerciseViewController: UICollectionViewDelegate {
         
         if indexPath.row < presenter.filteredExerciseList.count {
             let exercise = presenter.filteredExerciseList[indexPath.row]
-            didTapButton(exercise)
+            didTap(exercise)
         }
     }
 }
@@ -160,7 +160,7 @@ extension SelectExerciseViewController: UICollectionViewDataSource {
 
 extension SelectExerciseViewController: SelectExerciseViewCellDelegate {
     
-    func didTapButton(_ exercise: Exercise?) {
+    func didTap(_ exercise: Exercise?) {
         guard let exercise = exercise else { return }
         presenter.updateSelectedExerciseList(exercise)
     }
