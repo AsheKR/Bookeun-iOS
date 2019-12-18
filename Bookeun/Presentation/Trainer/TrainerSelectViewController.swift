@@ -89,7 +89,7 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
         
         selectButton.do {
             $0.setTitle("책 등록으로 넘어가기", for: .normal)
-            $0.backgroundColor = .tealishGreen
+            $0.backgroundColor = .brightSeaGreen
             $0.layer.cornerRadius = 23
             $0.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
         }
