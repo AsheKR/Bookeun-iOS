@@ -63,7 +63,7 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     // MARK: - Objc
     
     @objc private func didTapExplainButton(_ sender: UIButton) {
-        presenter.showExplain(show: true)
+        presenter.showExplain(true)
     }
     
     @objc private func didTapReadyButton(_ sender: UIButton) {
@@ -71,20 +71,20 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     }
     
     @objc private func didTapCloseExplainButton(_ sender: UIButton) {
-        presenter.showExplain(show: false)
+        presenter.showExplain(false)
     }
     
     // MARK: - Custom Method
     
-    func hideReadyView(hide: Bool) {
+    func hideReadyView(_ hide: Bool) {
         readyView.isHidden = hide
     }
     
-    func hideExplainView(hide: Bool) {
+    func hideExplainView(_ hide: Bool) {
         explainExerciseView.isHidden = hide
     }
     
-    func hideTimerView(hide: Bool) {
+    func hideTimerView(_ hide: Bool) {
         timerView.isHidden = hide
     }
     

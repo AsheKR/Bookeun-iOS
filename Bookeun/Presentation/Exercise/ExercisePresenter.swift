@@ -25,12 +25,12 @@ class ExercisePresenter: PresenterProtocol {
     var exerciseImageIndex = 0
     var isReadyState: Bool = false {
         didSet {
-            view.hideReadyView(hide: !isReadyState)
+            view.hideReadyView(!isReadyState)
         }
     }
     var isExplainState: Bool = false {
         didSet {
-            view.hideExplainView(hide: !isExplainState)
+            view.hideExplainView(!isExplainState)
         }
     }
     
@@ -74,12 +74,8 @@ class ExercisePresenter: PresenterProtocol {
         startTimer()
     }
     
-    func showExplain(show: Bool) {
-        if show {
-            isExplainState = true
-        } else {
-            isExplainState = false
-        }
+    func showExplain(_ show: Bool) {
+        isExplainState = show
     }
     
     func explainText(_ index: Int) -> String {
@@ -108,7 +104,7 @@ class ExercisePresenter: PresenterProtocol {
             if readyCount < 0 {
                 readyCount = 3
                 isReadyState = false
-                view.hideTimerView(hide: false)
+                view.hideTimerView(false)
             }
         } else {
             // Exercise Images
@@ -125,7 +121,7 @@ class ExercisePresenter: PresenterProtocol {
             if timerCount < 0 {
                 secondTimer.invalidate()
                 setExerciseImage(currentExerciseImageURLString)
-                view.hideTimerView(hide: true)
+                view.hideTimerView(true)
                 // TODO: END Phase
             }
         }
