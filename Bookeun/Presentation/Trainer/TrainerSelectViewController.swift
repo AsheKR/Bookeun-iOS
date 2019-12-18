@@ -83,12 +83,15 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
             $0.register(NoTrainerCell.self, forCellWithReuseIdentifier: NoTrainerCell.identifier)
             $0.register(TrainerCell.self, forCellWithReuseIdentifier: TrainerCell.identifier)
             $0.isPagingEnabled = true
+            $0.showsHorizontalScrollIndicator = false
             $0.delegate = self
             $0.backgroundColor = .white
         }
         
         selectButton.do {
             $0.setTitle("책 등록으로 넘어가기", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
             $0.backgroundColor = .brightSeaGreen
             $0.layer.cornerRadius = 23
             $0.addTarget(self, action: #selector(didTapSelectButton), for: .touchUpInside)
