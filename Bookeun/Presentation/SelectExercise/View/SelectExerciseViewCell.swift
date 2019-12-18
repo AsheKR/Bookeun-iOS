@@ -43,7 +43,7 @@ class SelectExerciseViewCell: UICollectionViewCell, Nameable {
         delegate?.didTap(exercise)
     }
     
-    func configure(exercise: Exercise, checked: Bool) {
+    func setExercise(_ exercise: Exercise, checked: Bool) {
         self.exercise = exercise
         checkButton.isSelected = checked
         

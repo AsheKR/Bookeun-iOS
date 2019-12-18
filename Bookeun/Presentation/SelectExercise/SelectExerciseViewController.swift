@@ -152,7 +152,7 @@ extension SelectExerciseViewController: UICollectionViewDataSource {
         let selected = presenter.selectedExerciseList.first(where: { $0.id == exercise.id })
         
         cell.delegate = self
-        cell.configure(exercise: exercise, checked: selected != nil)
+        cell.setExercise(exercise, checked: selected != nil)
         
         return cell
     }

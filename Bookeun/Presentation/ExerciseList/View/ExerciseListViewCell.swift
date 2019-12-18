@@ -62,7 +62,7 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
         }
     }
     
-    func configure(_ exercise: Exercise) {
+    func setExercise(_ exercise: Exercise) {
         categoryLabel.text = exercise.category.name
         exerciseLabel.text = exercise.name
         timeLabel.text = "\(exercise.exerciseTime ?? 2)분"

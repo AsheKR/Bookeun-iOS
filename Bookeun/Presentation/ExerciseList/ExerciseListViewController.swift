@@ -56,7 +56,7 @@ extension ExerciseListViewController: UITableViewDataSource {
         let exercise = presenter.selectedExerciseList[indexPath.row]
         
         cell.delegate = self
-        cell.configure(exercise)
+        cell.setExercise(exercise)
         
         return cell
     }
