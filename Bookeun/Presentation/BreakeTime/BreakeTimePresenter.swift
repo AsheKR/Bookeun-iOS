@@ -12,7 +12,7 @@ import AVFoundation
 
 class BreakeTimePresenter: PresenterProtocol {
     typealias View = BreakeTimeViewController
-    let view: BreakeTimeViewController
+    unowned let view: BreakeTimeViewController
     
     let synthesizer = AVSpeechSynthesizer()
     var book: Book?
