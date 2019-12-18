@@ -11,30 +11,7 @@ import UIKit
 class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        self.rootViewController = EmptyViewController()
-
-        Repo.shared.exercise.getExerciseList()
-            .map { list in
-                list.map { exc in ExerciseWithCount.init(exercise: exc, count: 3) }
-            }
-            .subscribe(onSuccess: { [unowned self] list in
-                Store.share.setExerciseList(list)
-                // MARK: Original
-//                self.rootViewController = UIStoryboard(name: "ExerciseViewController", bundle: nil).instantiateInitialViewController() as! ExerciseViewController
-                // MARK: Exercise
-                guard let viewController = UIStoryboard(name: ExerciseViewController.identifier, bundle: nil).instantiateInitialViewController() else {
-                    return
-                }
-                let exerciseNavigationController = UINavigationController(rootViewController: viewController)
-                self.rootViewController = exerciseNavigationController
-            })
-
-//        guard let viewController = UIStoryboard(name: ExerciseViewController.identifier, bundle: nil).instantiateInitialViewController() else {
-//            return
-//        }
-//        let navigation = UINavigationController(rootViewController: viewController)
-//        self.rootViewController = navigation
+        self.rootViewController = TrainerSelectViewController()
     }
     
     required init?(coder: NSCoder) {
