@@ -12,6 +12,12 @@ import Then
 
 class ErrorViewController: EmptyViewController {
     let errorView = ErrorView()
+    
+    override func attribute() {
+        self.do {
+            $0.view.backgroundColor = .clear
+        }
+    }
 
     override func layout() {
         view.addSubview(errorView)
@@ -23,7 +29,7 @@ class ErrorViewController: EmptyViewController {
 
     override func initialize() {
         self.do {
-            $0.modalPresentationStyle = .overFullScreen
+            $0.modalPresentationStyle = .overCurrentContext
             $0.modalTransitionStyle = .crossDissolve
         }
     }

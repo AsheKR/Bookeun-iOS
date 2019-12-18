@@ -37,7 +37,7 @@ class BreakeTimePresenter: PresenterProtocol {
         view.setReview(review)
     }
     
-    func readingButtonTapped() {
+    func didTapReadingButton() {
         guard let review = review else {
             view.showErrorView()
             return

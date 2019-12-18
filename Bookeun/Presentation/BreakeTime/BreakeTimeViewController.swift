@@ -28,8 +28,8 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         presenter.viewDidLoad()
     }
     
-    @objc func readingButtonTapped() {
-        presenter.readingButtonTapped()
+    @objc func didTapReadingButton() {
+        presenter.didTapReadingButton()
     }
     
     func setBookTitleAndAuthor(title: String, author: String) {
@@ -86,7 +86,7 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         
         reviewReadingButton.do {
             $0.tintColor = .tealishGreen
-            $0.addTarget(self, action: #selector(readingButtonTapped), for: .touchUpInside)
+            $0.addTarget(self, action: #selector(didTapReadingButton), for: .touchUpInside)
             $0.setImage(#imageLiteral(resourceName: "SpeakingIcon").withRenderingMode(.alwaysTemplate), for: .normal)
         }
         
