@@ -13,7 +13,7 @@ class ExerciseListViewControllerPresenter: PresenterProtocol {
     
     typealias View = ExerciseListViewController
     
-    let view: View
+    unowned let view: View
     
     required init(view: ExerciseListViewController) { self.view = view }
     
