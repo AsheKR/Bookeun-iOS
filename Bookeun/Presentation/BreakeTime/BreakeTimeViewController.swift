@@ -14,7 +14,6 @@ import Then
 
 class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
     let backButton = UIButton()
-    
     let titleLabel = UILabel()
     let subTitleLabel = UILabel()
     let imageView = UIImageView()
