@@ -25,7 +25,6 @@ extension Exercise: Codable {
         case id, name, category, calorie, power
         case englishName = "english_name"
         case explainList = "descriptions"
-//        case exerciseTime = "exercise_time"
         case exerciseTime = "time"
         case imageURLs = "images"
     }
