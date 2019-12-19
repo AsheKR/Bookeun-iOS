@@ -22,6 +22,7 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        presenter.request()
         scrollToCenter()
     }
 
@@ -67,7 +68,6 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     private func getCenterIndex(_ scrollView: UIScrollView) {
         let center = CGPoint(x: scrollView.center.x + scrollView.contentOffset.x, y: .zero)
 
-        print("center: \(center), \(collectionView), \(collectionView.indexPathForItem(at: center))")
         if let selected = collectionView.indexPathForItem(at: center) {
             if scrollIndex != selected.row {
                 scrollIndex = selected.row
@@ -92,13 +92,23 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
         setSelect(index, selected: true)
 
         selectedIndex = index
+        
+        presenter.filterData(selectedIndex + 1)
     }
     
     @IBAction private func actionNextButton(_ sender: UIButton) {
-        
-        // TODO: Push로 변경
-        let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ExerciseListViewController.identifier)
-        present(viewController, animated: false, completion: nil)
+        guard let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil)
+                                    .instantiateViewController(withIdentifier: ExerciseListViewController.identifier) as? ExerciseListViewController else { return }
+        viewController.presenter.selectedExerciseList = presenter.selectedExerciseList
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func presentErrorView(error: Error) {
+        present(ErrorViewController(), animated: true, completion: nil)
+    }
+    
+    func update() {
+        collectionView.reloadData()
     }
 }
 
@@ -113,19 +123,45 @@ extension SelectExerciseViewController: UICollectionViewDelegate {
         getCenterIndex(scrollView)
         scrollToCenter()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        
+        let cell = collectionView.cellForItem(at: indexPath) as? SelectExerciseViewCell
+        cell?.checkButton.isSelected.toggle()
+        
+        if indexPath.row < presenter.filteredExerciseList.count {
+            let exercise = presenter.filteredExerciseList[indexPath.row]
+            didTap(exercise)
+        }
+    }
 }
 
 extension SelectExerciseViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return presenter.filteredExerciseList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectExerciseViewCell.identifier, for: indexPath) as? SelectExerciseViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectExerciseViewCell.identifier,
+                                                            for: indexPath) as? SelectExerciseViewCell else {
             return UICollectionViewCell()
         }
+        let exercise = presenter.filteredExerciseList[indexPath.row]
+        let selected = presenter.selectedExerciseList.first(where: { $0.id == exercise.id })
+        
+        cell.delegate = self
+        cell.setExercise(exercise, checked: selected != nil)
         
         return cell
+    }
+}
+
+extension SelectExerciseViewController: SelectExerciseViewCellDelegate {
+    
+    func didTap(_ exercise: Exercise?) {
+        guard let exercise = exercise else { return }
+        presenter.updateSelectedExerciseList(exercise)
     }
 }

@@ -14,11 +14,27 @@ class ExerciseListViewController: ViewController<ExerciseListViewControllerPrese
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var categoriesLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var setCountLabel: UILabel!
     @IBOutlet private var menuViews: [UIView]!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter.updateTotalDuration()
+    }
+    
     override func attribute() {
-        menuViews.forEach({ $0.layer.cornerRadius = $0.bounds.height / 2 })
+        menuViews.forEach { $0.layer.cornerRadius = $0.bounds.height / 2 }
         nextButton.layer.cornerRadius = nextButton.bounds.height / 2
+    }
+    
+    func updateTotalDuration(name: String, duration: String, set: String) {
+        categoriesLabel.text = presenter.selectedExerciseList.compactMap({ $0.category.name })
+                                                            .joined(separator: ",")
+        durationLabel.text = "\(presenter.exerciseTime.duration)분"
+        setCountLabel.text = "\(presenter.exerciseTime.set)세트"
     }
 }
 
@@ -29,14 +45,27 @@ extension ExerciseListViewController: UITableViewDelegate {
 extension ExerciseListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return presenter.selectedExerciseList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseListViewCell.identifier, for: indexPath) as? ExerciseListViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseListViewCell.identifier,
+                                                       for: indexPath) as? ExerciseListViewCell else {
             return UITableViewCell()
         }
+        let exercise = presenter.selectedExerciseList[indexPath.row]
+        
+        cell.delegate = self
+        cell.setExercise(exercise)
         
         return cell
+    }
+}
+
+extension ExerciseListViewController: ExerciseListViewCellDelegate {
+    
+    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int) {
+        let changed = newCount - oldCount
+        presenter.updateTotalDuration(changed: changed, time: time)
     }
 }

@@ -19,7 +19,7 @@ protocol ExerciseRepository {
 
 class ExerciseRepositoryImpl: NetworkRepository<BookeunAPI>, ExerciseRepository {
     func getExerciseCategoryList() -> Single<[ExerciseCategory]> {
-        provider.rx.request(.getExerciseList)
+        provider.rx.request(.getExerciseCategoryList)
             .filterSuccessfulStatusCodes()
             .map([ExerciseCategory].self)
     }

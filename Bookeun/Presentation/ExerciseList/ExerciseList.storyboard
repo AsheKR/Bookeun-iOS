@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iYG-V6-3HE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iYG-V6-3HE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -344,7 +344,10 @@
                         <viewLayoutGuide key="safeArea" id="eg2-p4-BiK"/>
                     </view>
                     <connections>
+                        <outlet property="categoriesLabel" destination="cOR-Ve-LR4" id="op9-si-nXM"/>
+                        <outlet property="durationLabel" destination="TvJ-4G-cqs" id="Eqs-b6-dHv"/>
                         <outlet property="nextButton" destination="7yt-5z-sYH" id="1le-CR-Asb"/>
+                        <outlet property="setCountLabel" destination="LL4-v5-toV" id="NB1-U3-j2z"/>
                         <outlet property="tableView" destination="q97-eA-wyS" id="Mlx-2R-Put"/>
                         <outletCollection property="menuViews" destination="dId-Hw-peq" collectionClass="NSMutableArray" id="a2q-i7-3df"/>
                         <outletCollection property="menuViews" destination="ss3-P8-ZV3" collectionClass="NSMutableArray" id="Cys-T0-Gj6"/>
