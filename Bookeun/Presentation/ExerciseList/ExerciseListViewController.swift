@@ -31,10 +31,13 @@ class ExerciseListViewController: ViewController<ExerciseListViewControllerPrese
     }
     
     func updateTotalDuration(name: String, duration: String, set: String) {
-        categoriesLabel.text = presenter.selectedExerciseList.compactMap({ $0.category.name })
-                                                            .joined(separator: ",")
-        durationLabel.text = "\(presenter.exerciseTime.duration)분"
-        setCountLabel.text = "\(presenter.exerciseTime.set)세트"
+        categoriesLabel.text = name
+        durationLabel.text = "\(duration)분"
+        setCountLabel.text = "\(set)세트"
+    }
+    
+    @IBAction private func actionNextButton(_ sender: UIButton) {
+        presenter.updateStore()
     }
 }
 
@@ -53,10 +56,10 @@ extension ExerciseListViewController: UITableViewDataSource {
                                                        for: indexPath) as? ExerciseListViewCell else {
             return UITableViewCell()
         }
-        let exercise = presenter.selectedExerciseList[indexPath.row]
+        let exerciseWithCount = presenter.selectedExerciseList[indexPath.row]
         
         cell.delegate = self
-        cell.setExercise(exercise)
+        cell.setExercise(exerciseWithCount.exercise, at: indexPath.row)
         
         return cell
     }
@@ -64,8 +67,8 @@ extension ExerciseListViewController: UITableViewDataSource {
 
 extension ExerciseListViewController: ExerciseListViewCellDelegate {
     
-    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int) {
+    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int, at index: Int?) {
         let changed = newCount - oldCount
-        presenter.updateTotalDuration(changed: changed, time: time)
+        presenter.updateTotalDuration(changed: changed, time: time, at: index)
     }
 }

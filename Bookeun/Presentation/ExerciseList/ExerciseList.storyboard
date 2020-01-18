@@ -192,6 +192,9 @@
                                         <state key="normal" title="선택한 책으로 운동하기">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="actionNextButton:" destination="iYG-V6-3HE" eventType="touchUpInside" id="KdQ-6X-eKy"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Gfr-Ui-86q">
                                         <rect key="frame" x="30" y="24" width="354" height="69"/>

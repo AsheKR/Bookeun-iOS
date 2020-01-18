@@ -99,7 +99,7 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     @IBAction private func actionNextButton(_ sender: UIButton) {
         guard let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil)
                                     .instantiateViewController(withIdentifier: ExerciseListViewController.identifier) as? ExerciseListViewController else { return }
-        viewController.presenter.selectedExerciseList = presenter.selectedExerciseList
+        viewController.presenter.selectedExerciseList = presenter.selectedExerciseList.compactMap({ ExerciseWithCount(exercise: $0, count: 0) })
         navigationController?.pushViewController(viewController, animated: true)
     }
     
