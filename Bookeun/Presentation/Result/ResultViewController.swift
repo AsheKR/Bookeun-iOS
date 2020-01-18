@@ -23,8 +23,12 @@ class ResultViewController: ViewController<ResultPresenter> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        messageLabel.text = presenter.getMessage()
+        setUp()
+    }
+    
+    func setUp() {
+        let message = presenter.getMessage()
+        messageLabel.text = message
         
         if let totalBookPage = presenter.getTotalBookPage() {
             pageInfoContentLabel.text = totalBookPage.description
