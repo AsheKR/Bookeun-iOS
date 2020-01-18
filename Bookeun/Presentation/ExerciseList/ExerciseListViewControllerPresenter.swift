@@ -28,7 +28,7 @@ class ExerciseListViewControllerPresenter: PresenterProtocol {
                                             .reduce(0, +)
         exerciseTime = (duration, defaultSetCount * selectedExerciseList.count)
         
-        view.updateTotalDuration(name: selectedExerciseList.compactMap({ $0.exercise.category.name })
+        view.updateTotalDuration(name: selectedExerciseList.map({ $0.exercise.category.name })
                                                             .joined(separator: ","),
                                 duration: "\(exerciseTime.duration)분",
                                 set: "\(exerciseTime.set)세트")
@@ -44,7 +44,7 @@ class ExerciseListViewControllerPresenter: PresenterProtocol {
         exerciseTime.duration += changed * time
         exerciseTime.set += changed
         
-        view.updateTotalDuration(name: selectedExerciseList.compactMap({ $0.exercise.category.name })
+        view.updateTotalDuration(name: selectedExerciseList.map({ $0.exercise.category.name })
                                                             .joined(separator: ","),
                                 duration: "\(exerciseTime.duration)분",
                                 set: "\(exerciseTime.set)세트")

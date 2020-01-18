@@ -51,8 +51,8 @@ class SelectExerciseViewCell: UICollectionViewCell, Nameable {
         nameLabel.text = exercise.name
         durationLabel.text = "\(exercise.exerciseTime ?? 0) 분"
         calorieLabel.text = "\(exercise.calorie ?? 0) 칼로리"
-        if let imageURL = exercise.imageURLs.first, let url = URL(string: imageURL.url), let imageData = try? Data(contentsOf: url) {
-            imageView.image = UIImage(data: imageData)   
+        if let imageURL = exercise.imageURLs.first, let url = URL(string: imageURL.url) {
+            imageView.kf.setImage(with: url)
         }
     }
 }
