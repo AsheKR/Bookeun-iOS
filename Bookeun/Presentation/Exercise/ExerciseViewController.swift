@@ -99,7 +99,11 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     }
     
     func showReadyCount(_ count: Int) {
-        readyLabel.text = String(count)
+        if count == 0 {
+            readyLabel.text = nil
+        } else {
+            readyLabel.text = String(count)
+        }
     }
     
     func setTimerCount(_ count: Int) {
@@ -113,7 +117,8 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
 
 extension ExerciseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.exerciseList[presenter.exerciseIndex].exercise.explainList.count
+//        return presenter.exerciseList[presenter.exerciseIndex].exercise.explainList.count
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

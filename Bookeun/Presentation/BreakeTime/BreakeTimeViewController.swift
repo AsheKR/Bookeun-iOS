@@ -94,6 +94,10 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
             $0.tintColor = .black
             $0.setImage(#imageLiteral(resourceName: "btnBack.pdf").withRenderingMode(.alwaysTemplate), for: .normal)
         }
+        
+        reviewLabel.do {
+            $0.numberOfLines = 0
+        }
     }
     
     override func layout() {
