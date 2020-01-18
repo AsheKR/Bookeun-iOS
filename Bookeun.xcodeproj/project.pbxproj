@@ -33,11 +33,14 @@
 		C924D7A52386C8DF002ADF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C924D7A32386C8DF002ADF0C /* LaunchScreen.storyboard */; };
 		C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D7AC2386C905002ADF0C /* RootWindow.swift */; };
 		C97C60CF23A6158000A80876 /* BreakeTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97C60CE23A6158000A80876 /* BreakeTimeViewController.swift */; };
-		C985E27923A793CE004610C8 /* BreakeTimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */; };
 		C9840102238986D900067A06 /* TrainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9840101238986D900067A06 /* TrainerCell.swift */; };
 		C9840104238986E000067A06 /* NoTrainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9840103238986E000067A06 /* NoTrainerCell.swift */; };
+		C985E27923A793CE004610C8 /* BreakeTimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */; };
 		C9882C292389751A00180486 /* TrainerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9882C282389751A00180486 /* TrainerSelectViewController.swift */; };
 		C9882C2B2389752400180486 /* TrainerSelectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9882C2A2389752400180486 /* TrainerSelectPresenter.swift */; };
+		C9B5DA2923D2BE360003A226 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5DA2823D2BE360003A226 /* ResultViewController.swift */; };
+		C9B5DA2B23D2BE5A0003A226 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5DA2A23D2BE5A0003A226 /* ResultPresenter.swift */; };
+		C9B5DA2D23D2BF290003A226 /* SubResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5DA2C23D2BF290003A226 /* SubResultView.swift */; };
 		CEAC126B23897878008B69F7 /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC126923897877008B69F7 /* Nameable.swift */; };
 		CEAC126C23897878008B69F7 /* CenterCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC126A23897877008B69F7 /* CenterCollectionLayout.swift */; };
 		CEAC1285238978BB008B69F7 /* ExerciseList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC127D238978BB008B69F7 /* ExerciseList.storyboard */; };
@@ -90,11 +93,14 @@
 		C924D7A62386C8DF002ADF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C924D7AC2386C905002ADF0C /* RootWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindow.swift; sourceTree = "<group>"; };
 		C97C60CE23A6158000A80876 /* BreakeTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakeTimeViewController.swift; sourceTree = "<group>"; };
-		C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakeTimePresenter.swift; sourceTree = "<group>"; };
 		C9840101238986D900067A06 /* TrainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCell.swift; sourceTree = "<group>"; };
 		C9840103238986E000067A06 /* NoTrainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTrainerCell.swift; sourceTree = "<group>"; };
+		C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakeTimePresenter.swift; sourceTree = "<group>"; };
 		C9882C282389751A00180486 /* TrainerSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectViewController.swift; sourceTree = "<group>"; };
 		C9882C2A2389752400180486 /* TrainerSelectPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectPresenter.swift; sourceTree = "<group>"; };
+		C9B5DA2823D2BE360003A226 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		C9B5DA2A23D2BE5A0003A226 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
+		C9B5DA2C23D2BF290003A226 /* SubResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubResultView.swift; sourceTree = "<group>"; };
 		CEAC126923897877008B69F7 /* Nameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		CEAC126A23897877008B69F7 /* CenterCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCollectionLayout.swift; sourceTree = "<group>"; };
 		CEAC127D238978BB008B69F7 /* ExerciseList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExerciseList.storyboard; sourceTree = "<group>"; };
@@ -242,8 +248,8 @@
 				C985E27823A793CE004610C8 /* BreakeTimePresenter.swift */,
 			);
 			path = BreakeTime;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		C9840100238986B600067A06 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +267,16 @@
 				C9882C2A2389752400180486 /* TrainerSelectPresenter.swift */,
 			);
 			path = Trainer;
+			sourceTree = "<group>";
+		};
+		C9B5DA2723D2BDE90003A226 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				C9B5DA2823D2BE360003A226 /* ResultViewController.swift */,
+				C9B5DA2C23D2BF290003A226 /* SubResultView.swift */,
+				C9B5DA2A23D2BE5A0003A226 /* ResultPresenter.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		CEAC126823897877008B69F7 /* Util */ = {
@@ -349,6 +365,7 @@
 				CEAC127C238978BB008B69F7 /* ExerciseList */,
 				CEAC127F238978BB008B69F7 /* SelectExercise */,
 				C97C60CD23A6154B00A80876 /* BreakeTime */,
+				C9B5DA2723D2BDE90003A226 /* Result */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -507,6 +524,7 @@
 				CEAC129323899F4F008B69F7 /* ExerciseWithCount.swift in Sources */,
 				C924D7AD2386C905002ADF0C /* RootWindow.swift in Sources */,
 				C903E0852389330D0083D079 /* BarcodeViewController.swift in Sources */,
+				C9B5DA2D23D2BF290003A226 /* SubResultView.swift in Sources */,
 				C924D79D2386C8DD002ADF0C /* ViewController.swift in Sources */,
 				C903E089238933D00083D079 /* BarcodeView.swift in Sources */,
 				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
@@ -515,6 +533,7 @@
 				C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */,
 				D918537423A8D1B00033CA75 /* ExerciseImageUrl.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
+				C9B5DA2923D2BE360003A226 /* ResultViewController.swift in Sources */,
 				C985E27923A793CE004610C8 /* BreakeTimePresenter.swift in Sources */,
 				CEAC1288238978BB008B69F7 /* SelectExerciseViewController.swift in Sources */,
 				C903E099238959510083D079 /* RepositoryContainer.swift in Sources */,
@@ -529,6 +548,7 @@
 				CEAC126C23897878008B69F7 /* CenterCollectionLayout.swift in Sources */,
 				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
 				C9840102238986D900067A06 /* TrainerCell.swift in Sources */,
+				C9B5DA2B23D2BE5A0003A226 /* ResultPresenter.swift in Sources */,
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				CEAC1286238978BB008B69F7 /* ExerciseListViewController.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
@@ -684,7 +704,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				DEVELOPMENT_TEAM = FN2MXRHP9Z;
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -703,7 +723,8 @@
 			baseConfigurationReference = 5757F44FA2A96D93E1F511A1 /* Pods-Bookeun.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
