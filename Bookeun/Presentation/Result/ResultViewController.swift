@@ -96,7 +96,7 @@ class ResultViewController: ViewController<ResultPresenter> {
         messageLabel.snp.makeConstraints {
             $0.top.equalTo(messageImageView).offset(10)
             $0.left.right.equalTo(messageImageView).inset(20)
-            $0.bottom.equalTo(messageImageView).inset(20 + 10)
+            $0.bottom.equalTo(messageImageView).inset(30)
         }
         
         trainerImageView.snp.makeConstraints {
