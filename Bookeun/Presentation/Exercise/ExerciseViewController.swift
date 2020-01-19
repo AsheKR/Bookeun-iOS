@@ -117,8 +117,7 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
 
 extension ExerciseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return presenter.exerciseList[presenter.exerciseIndex].exercise.explainList.count
-        return 5
+        return presenter.exerciseList[presenter.exerciseIndex].exercise.explainList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -58,14 +58,6 @@ class ExercisePresenter: PresenterProtocol {
     }
     
     func startTimer() {
-        // TODO: RxSwift
-//        Observable<Int>.interval(1.0, scheduler: MainScheduler.instance)
-//            .subscribe(onNext: { [unowned self] count in
-//                let exerciseImageURLs = self.exerciseList[self.exerciseIndex].exercise.imageURLs
-//                let currentIndex = (count % exerciseImageURLs.count)
-//                self.view.setExerciseImage(exerciseImageURLs[currentIndex])
-//            })
-//            .disposed(by: disposeBag)
         secondTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actionPerSecond(_:)), userInfo: nil, repeats: true)
     }
     
@@ -110,29 +102,26 @@ class ExercisePresenter: PresenterProtocol {
             // 0 2 4
             setExerciseImage(exercise.imageURLs[(exerciseImageIndex-3)*2].url)
         }
-//        setExerciseImage(exercise.imageURLs[exerciseImageIndex].url)
-        
         exerciseImageIndex += 1
         
         // Timer
         view.setTimerCount(timerCount)
         timerCount -= 1
         
-        if timerCount < 0 {
+        if timerCount < 0 { // END Phase
             secondTimer.invalidate()
             timerCount = 6
             setExerciseImage(currentExerciseImageURLString)
             view.hideTimerView(true)
-            // TODO: END Phase
             let endViewController = BreakeTimeViewController()
             let googleBook = Book(id: 0, name: "구글의 미래", coverImageURL: URL(string: "https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/57wZ/image/E8uIYmuJPC_iTWKhJMl3Clf2rLg.jpg")!, author: "author", publisher: "publisher", weight: 10.0, page: 100, grade: 100, reviews: ["갓글 역시 미쳐따 나는 구글에 가고 말꺼야 파이리 짱이야", "갓글 역시 미쳐따 나는 구글에 가고 말꺼야 파이리 짱이야"], salePrice: 1000.0, usedPrice: 2000.0)
+            endViewController.modalPresentationStyle = .fullScreen
             endViewController.presenter.setBook(googleBook)
             view.present(endViewController, animated: true, completion: nil)
         }
     }
     
     @objc private func actionPerSecond(_ sender: Timer) {
-        
         if isReadyState {
             view.showReadyCount(readyCount)
             readyCount -= 1
