@@ -113,12 +113,18 @@ class ExercisePresenter: PresenterProtocol {
             timerCount = 6
             setExerciseImage(currentExerciseImageURLString)
             view.hideTimerView(true)
-            let endViewController = BreakeTimeViewController()
+            
+            // Dummy Book
             let googleBook = Book(id: 0, name: "구글의 미래", coverImageURL: URL(string: "https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/57wZ/image/E8uIYmuJPC_iTWKhJMl3Clf2rLg.jpg")!, author: "author", publisher: "publisher", weight: 10.0, page: 100, grade: 100, reviews: ["갓글 역시 미쳐따 나는 구글에 가고 말꺼야 파이리 짱이야", "갓글 역시 미쳐따 나는 구글에 가고 말꺼야 파이리 짱이야"], salePrice: 1000.0, usedPrice: 2000.0)
-            endViewController.modalPresentationStyle = .fullScreen
-            endViewController.presenter.setBook(googleBook)
-            view.present(endViewController, animated: true, completion: nil)
+            showBreakTimeView(with: googleBook)
         }
+    }
+    
+    func showBreakTimeView(with book: Book) {
+        let endViewController = BreakeTimeViewController()
+        endViewController.modalPresentationStyle = .fullScreen
+        endViewController.presenter.setBook(book)
+        view.present(endViewController, animated: true, completion: nil)
     }
     
     @objc private func actionPerSecond(_ sender: Timer) {
