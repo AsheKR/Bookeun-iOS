@@ -14,7 +14,7 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
     @IBOutlet weak var titleWrapperView: UIView!
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
-    @IBOutlet weak var contentWrapperView: UIView!
+    @IBOutlet weak var bookInfoWrapperView: UIView!
     @IBOutlet weak var bottomConformButton: UIButton!
     @IBOutlet weak var contentBookLabel: UILabel!
     @IBOutlet weak var contentWriterLabel: UILabel!
@@ -27,7 +27,7 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRxContent()
-        presenter.getBookData(byungChansLove)
+//        presenter.getBookData(byungChansLove)
     }
     
     override func attribute() {
@@ -42,10 +42,7 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
             $0.layer.cornerRadius = 12.0
         }
         
-        contentWrapperView.subviews.filter {
-            let result = $0 is UIImageView
-            return !result
-        }.forEach { view in
+        bookInfoWrapperView.subviews.forEach{ view in
             view.layer.borderColor = UIColor(red: 215/256, green: 215/256, blue: 215/256, alpha: 1.0).cgColor
             view.layer.borderWidth = 1.0
             view.layer.cornerRadius = 16.0
