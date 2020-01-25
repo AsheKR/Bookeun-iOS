@@ -22,12 +22,15 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
     @IBOutlet weak var contentWeightLabel: UILabel!
     @IBOutlet weak var contentPriceLabel: UILabel!
     
-    var byungChansLove: String!
+    var bookISBMCode: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRxContent()
-//        presenter.getBookData(byungChansLove)
+        guard let bookISBMCode = bookISBMCode else {
+            presentErrorView()
+            return
+        }
+        presenter.getBookData(bookISBMCode)
     }
     
     override func attribute() {
@@ -54,12 +57,7 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
         }
     }
     
-    func setupRxContent() {
-        // Rx code... sorry
-//        use setContent(_:) code
-    }
-    
-    func setContent(_ book: Book) {
+    func setBook(_ book: Book) {
         contentImageView.kf.setImage(with: book.coverImageURL)
         bookTitleLabel.text = book.name
         contentBookLabel.text = book.name

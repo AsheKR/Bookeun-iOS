@@ -15,17 +15,25 @@ class RegisterBookPresenter: PresenterProtocol {
     unowned let view: RegisterBookViewController
     required init(view: View) { self.view = view }
     let disposeBag = DisposeBag()
-    let book = PublishRelay<Book>()
+    var book: Book? = nil
     
     func getBookData(_ isbm: String) {
         Repo.shared.book.getBook(isbm: isbm)
             .observeOn(MainScheduler.instance)
-            .subscribe(onSuccess: book.accept, onError: { [weak view] _ in view?.presentErrorView() })
+            .subscribe(onSuccess: { [weak self, weak view] book in
+                self?.book = book
+                view?.setBook(book)
+            }, onError: { [weak view] _ in
+                view?.presentErrorView()
+            })
             .disposed(by: disposeBag)
     }
     
     func storeBook() {
-        // use presenter.book hear ^^;
-//        Store.share.setBookList([book])
+        guard let book = book else {
+            view.presentErrorView()
+            return
+        }
+        Store.share.setBookList([book])
     }
 }
