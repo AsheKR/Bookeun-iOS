@@ -34,6 +34,6 @@ class RegisterBookPresenter: PresenterProtocol {
             view.presentErrorView()
             return
         }
-        Store.share.setBookList([book])
+        Store.share.setBook(book)
     }
 }
