@@ -11,11 +11,7 @@ import UIKit
 class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.rootViewController = TrainerSelectViewController()
-        guard let registerBookViewController = UIStoryboard(name: "RegisterBookViewController", bundle: nil).instantiateInitialViewController() as? RegisterBookViewController else {
-            fatalError("rootViewController")
-        }
-        self.rootViewController = registerBookViewController
+        self.rootViewController = TrainerSelectViewController()
     }
     
     required init?(coder: NSCoder) {
