@@ -19,7 +19,7 @@ class SelectExerciseViewCell: UICollectionViewCell, Nameable {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var calorieLabel: UILabel!
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var exerciseImageView: UIImageView!
     @IBOutlet private var gradeViews: [UIView]!
     @IBOutlet weak var checkButton: UIButton!
     
@@ -52,7 +52,7 @@ class SelectExerciseViewCell: UICollectionViewCell, Nameable {
         durationLabel.text = "\(exercise.exerciseTime ?? 0) 분"
         calorieLabel.text = "\(exercise.calorie ?? 0) 칼로리"
         if let imageURL = exercise.imageURLs.first, let url = URL(string: imageURL.url) {
-            imageView.kf.setImage(with: url)
+            exerciseImageView.kf.setImage(with: url)
         }
     }
 }

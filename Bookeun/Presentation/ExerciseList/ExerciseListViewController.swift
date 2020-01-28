@@ -68,6 +68,6 @@ extension ExerciseListViewController: UITableViewDataSource {
 extension ExerciseListViewController: ExerciseListViewCellDelegate {
     
     func didUpdateDuration(oldCount: Int, newCount: Int, time: Int, at index: Int?) {
-        presenter.updateTotalDuration(oldCount: oldCount, newCount: newCount, time: time, at: index)
+        presenter.updateTotalDuration(oldCount, newCount, time, at: index)
     }
 }

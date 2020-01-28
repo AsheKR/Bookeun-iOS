@@ -34,7 +34,7 @@ class ExerciseListViewControllerPresenter: PresenterProtocol {
                                 set: "\(exerciseTime.set)세트")
     }
     
-    func updateTotalDuration(oldCount: Int, newCount: Int, time: Int, at index: Int?) {
+    func updateTotalDuration(_ oldCount: Int, _ newCount: Int, _ time: Int, at index: Int?) {
         
         if let index = index, index < selectedExerciseList.count {
             selectedExerciseList[index].count = newCount
