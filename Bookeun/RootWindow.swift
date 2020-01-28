@@ -12,7 +12,6 @@ class RootWindow: UIWindow {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.rootViewController = TrainerSelectViewController()
-        self.rootViewController = BarcodeViewController()
     }
     
     required init?(coder: NSCoder) {
