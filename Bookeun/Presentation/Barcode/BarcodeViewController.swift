@@ -9,20 +9,46 @@
 import UIKit
 import SnapKit
 import Then
+import RxSwift
 
 class BarcodeViewController: EmptyViewController {
     let barcodeView = BarcodeView(
         barcodeGuideSize: .init(width: 250, height: 250),
         qrcodeGuideSize: .init(width: UIScreen.main.bounds.width + 2, height: 250)
     )
+    let disposeBag = DisposeBag()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
     let backButton = UIButton()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        barcodeView.currentCode
+            .distinctUntilChanged()
+            .bind(onNext: { [weak self] code in
+                guard let view = UIStoryboard(name: "RegisterBookViewController", bundle: nil).instantiateInitialViewController() as? RegisterBookViewController else {
+                    return
+                }
+                view.bookISBMCode = code
+                self?.present(view, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        barcodeView.start()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        barcodeView.stop()
+    }
 
     override func attribute() {
         barcodeView.do {
             $0.initialize()
-            $0.start()
         }
 
         titleLabel.do {
