@@ -21,7 +21,7 @@ class ExercisePresenter: PresenterProtocol {
     
     var secondTimer: Timer!
     var readyCount: Int = 3
-    var timerCount: Int = 20
+    var timerCount: Int = 0
     var exerciseImageIndex = 0
     var isReadyState: Bool = false {
         didSet {
@@ -49,7 +49,12 @@ class ExercisePresenter: PresenterProtocol {
             view.presentErrorView()
             return
         }
-        self.exerciseList = list
+        exerciseList = list
+        guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
+            view.presentErrorView()
+            return
+        }
+        timerCount = exerciseList[exerciseIndex].count * timePerExercise
     }
     
     func setCurrentExercise() {
@@ -58,14 +63,6 @@ class ExercisePresenter: PresenterProtocol {
     }
     
     func startTimer() {
-        // TODO: RxSwift
-//        Observable<Int>.interval(1.0, scheduler: MainScheduler.instance)
-//            .subscribe(onNext: { [unowned self] count in
-//                let exerciseImageURLs = self.exerciseList[self.exerciseIndex].exercise.imageURLs
-//                let currentIndex = (count % exerciseImageURLs.count)
-//                self.view.setExerciseImage(exerciseImageURLs[currentIndex])
-//            })
-//            .disposed(by: disposeBag)
         secondTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actionPerSecond(_:)), userInfo: nil, repeats: true)
     }
     
@@ -80,7 +77,7 @@ class ExercisePresenter: PresenterProtocol {
     
     func explainText(_ index: Int) -> String {
         guard index < exerciseList[exerciseIndex].exercise.explainList.count else {
-            return "설명이 없습니다."
+            return "영혼을 담아서 책을 천천히 들어 올리고 내립니다."
         }
         return exerciseList[exerciseIndex].exercise.explainList[index]
     }
@@ -93,11 +90,50 @@ class ExercisePresenter: PresenterProtocol {
         view.setExerciseImage(imageURL)
     }
     
-    // MARK: - Objc
+    func exerciseTimer() {
+        let exercise = exerciseList[exerciseIndex].exercise
+        // Exercise Images
+        if exerciseImageIndex == exercise.imageURLs.count {
+            exerciseImageIndex = 0
+        }
+        if exerciseImageIndex < 3 {
+            // 0 1 2
+            // 0 2 4
+            setExerciseImage(exercise.imageURLs[exerciseImageIndex*2].url)
+        } else {
+            // 3 4 5
+            // 0 2 4
+            setExerciseImage(exercise.imageURLs[(exerciseImageIndex-3)*2].url)
+        }
+        exerciseImageIndex += 1
+        
+        // Timer
+        view.setTimerCount(timerCount)
+        timerCount -= 1
+        
+        if timerCount < 0 { // END Phase
+            secondTimer.invalidate()
+            timerCount = 6
+            setExerciseImage(currentExerciseImageURLString)
+            view.hideTimerView(true)
+            
+            guard let book = Store.share.book else {
+                view.presentErrorView()
+                return
+            }
+            showBreakTimeView(with: book)
+        }
+    }
+    
+    func showBreakTimeView(with book: Book) {
+        let endViewController = BreakeTimeViewController()
+        endViewController.modalPresentationStyle = .fullScreen
+        endViewController.presenter.setBook(book)
+        endViewController.delegate = self
+        view.present(endViewController, animated: true, completion: nil)
+    }
     
     @objc private func actionPerSecond(_ sender: Timer) {
-        let exercise = exerciseList[exerciseIndex].exercise
-        
         if isReadyState {
             view.showReadyCount(readyCount)
             readyCount -= 1
@@ -105,25 +141,28 @@ class ExercisePresenter: PresenterProtocol {
                 readyCount = 3
                 isReadyState = false
                 view.hideTimerView(false)
+                exerciseTimer()
             }
         } else {
-            // Exercise Images
-            if exerciseImageIndex == exercise.imageURLs.count {
-                exerciseImageIndex = 0
+            exerciseTimer()
+        }
+    }
+}
+
+extension ExercisePresenter: BreakDelegate {
+    func didEndBreak() {
+        exerciseIndex += 1
+        if exerciseIndex == exerciseList.count { // 모든 운동이 끝난 경우
+            // END
+            let resultViewContrller = ResultViewController()
+            resultViewContrller.modalPresentationStyle = .fullScreen
+            view.present(resultViewContrller, animated: true, completion: nil)
+        } else { // 운동이 더 남아있는 경우
+            guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
+                view.presentErrorView()
+                return
             }
-            setExerciseImage(exercise.imageURLs[exerciseImageIndex].url)
-            exerciseImageIndex += 1
-            
-            // Timer
-            view.setTimerCount(timerCount)
-            timerCount -= 1
-            
-            if timerCount < 0 {
-                secondTimer.invalidate()
-                setExerciseImage(currentExerciseImageURLString)
-                view.hideTimerView(true)
-                // TODO: END Phase
-            }
+            timerCount = exerciseList[exerciseIndex].count * timePerExercise
         }
     }
 }

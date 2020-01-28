@@ -58,6 +58,7 @@
 		D90F12A623D2C1D400C1CD0A /* RegisterBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90F12A523D2C1D400C1CD0A /* RegisterBookViewController.swift */; };
 		D90F12A823D2C1E100C1CD0A /* RegisterBookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90F12A723D2C1E100C1CD0A /* RegisterBookPresenter.swift */; };
 		D918537423A8D1B00033CA75 /* ExerciseImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */; };
+		D952BE3A23E064110081AC53 /* BreakDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D952BE3923E064110081AC53 /* BreakDelegate.swift */; };
 		D9B5320223893632005135EF /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320123893632005135EF /* ExerciseViewController.swift */; };
 		D9B532052389364E005135EF /* ExerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B532042389364E005135EF /* ExerciseViewController.storyboard */; };
 		D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5320623893674005135EF /* ExercisePresenter.swift */; };
@@ -121,6 +122,7 @@
 		D90F12A523D2C1D400C1CD0A /* RegisterBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBookViewController.swift; sourceTree = "<group>"; };
 		D90F12A723D2C1E100C1CD0A /* RegisterBookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBookPresenter.swift; sourceTree = "<group>"; };
 		D918537323A8D1B00033CA75 /* ExerciseImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImageUrl.swift; sourceTree = "<group>"; };
+		D952BE3923E064110081AC53 /* BreakDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDelegate.swift; sourceTree = "<group>"; };
 		D9B5320123893632005135EF /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		D9B532042389364E005135EF /* ExerciseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseViewController.storyboard; sourceTree = "<group>"; };
 		D9B5320623893674005135EF /* ExercisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePresenter.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				D9B5320623893674005135EF /* ExercisePresenter.swift */,
 				D9B532042389364E005135EF /* ExerciseViewController.storyboard */,
 				D9B5320A23897EC5005135EF /* ExerciseExplainCell.swift */,
+				D952BE3923E064110081AC53 /* BreakDelegate.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9B5320723893674005135EF /* ExercisePresenter.swift in Sources */,
+				D952BE3A23E064110081AC53 /* BreakDelegate.swift in Sources */,
 				CEAC129123899EB5008B69F7 /* Store.swift in Sources */,
 				C903E09B238960A30083D079 /* Presenter.swift in Sources */,
 				C903E07323890C330083D079 /* Book.swift in Sources */,
@@ -724,7 +728,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FN2MXRHP9Z;
+				DEVELOPMENT_TEAM = 74HR8KDU73;
 				INFOPLIST_FILE = Bookeun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -99,7 +99,11 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     }
     
     func showReadyCount(_ count: Int) {
-        readyLabel.text = String(count)
+        if count == 0 {
+            readyLabel.text = nil
+        } else {
+            readyLabel.text = String(count)
+        }
     }
     
     func setTimerCount(_ count: Int) {
