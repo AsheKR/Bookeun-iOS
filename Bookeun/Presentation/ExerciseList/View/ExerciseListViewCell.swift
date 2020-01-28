@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ExerciseListViewCellDelegate: class {
-    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int)
+    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int, at index: Int?)
 }
 
 class ExerciseListViewCell: UITableViewCell, Nameable {
@@ -22,6 +22,8 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
     @IBOutlet private weak var countLabel: UILabel!
     @IBOutlet private weak var totalDurationContainerView: UIView!
     @IBOutlet private weak var totalDurationLabel: UILabel!
+    
+    var index: Int?
     
     weak var delegate: ExerciseListViewCellDelegate?
     
@@ -58,11 +60,13 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
             countLabel.text = "\(newCount)"
             updateTotalDuration(newCount)
             
-            delegate?.didUpdateDuration(oldCount: count, newCount: newCount, time: makeTime())
+            delegate?.didUpdateDuration(oldCount: count, newCount: newCount, time: makeTime(), at: index)
         }
     }
     
-    func setExercise(_ exercise: Exercise) {
+    func setExercise(_ exercise: Exercise, at index: Int) {
+        self.index = index
+        
         categoryLabel.text = exercise.category.name
         exerciseLabel.text = exercise.name
         timeLabel.text = "\(exercise.exerciseTime ?? 2)분"

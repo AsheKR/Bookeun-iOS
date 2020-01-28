@@ -10,5 +10,5 @@ import Foundation
 
 struct ExerciseWithCount {
     let exercise: Exercise
-    let count: Int
+    var count: Int
 }
