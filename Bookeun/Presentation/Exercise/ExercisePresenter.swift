@@ -21,7 +21,7 @@ class ExercisePresenter: PresenterProtocol {
     
     var secondTimer: Timer!
     var readyCount: Int = 3
-    var timerCount: Int = 6
+    var timerCount: Int = 0
     var exerciseImageIndex = 0
     var isReadyState: Bool = false {
         didSet {
@@ -51,6 +51,7 @@ class ExercisePresenter: PresenterProtocol {
         }
         exerciseList = list
         guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
+            view.presentErrorView()
             return
         }
         timerCount = exerciseList[exerciseIndex].count * timePerExercise
@@ -117,6 +118,7 @@ class ExercisePresenter: PresenterProtocol {
             view.hideTimerView(true)
             
             guard let book = Store.share.book else {
+                view.presentErrorView()
                 return
             }
             showBreakTimeView(with: book)
@@ -157,6 +159,7 @@ extension ExercisePresenter: BreakDelegate {
             view.present(resultViewContrller, animated: true, completion: nil)
         } else { // 운동이 더 남아있는 경우
             guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
+                view.presentErrorView()
                 return
             }
             timerCount = exerciseList[exerciseIndex].count * timePerExercise
