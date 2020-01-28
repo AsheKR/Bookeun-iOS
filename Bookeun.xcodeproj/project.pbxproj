@@ -328,13 +328,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D90F12A123D2BE3600C1CD0A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		D918537523A8D4350033CA75 /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,7 +342,6 @@
 		D9B531F923892A10005135EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D90F12A123D2BE3600C1CD0A /* New Group */,
 				D9B5320323893637005135EF /* Exercise */,
 				C9882C272389750500180486 /* Trainer */,
 				C903E083238932BC0083D079 /* Barcode */,
