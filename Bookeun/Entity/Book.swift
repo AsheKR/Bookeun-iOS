@@ -12,21 +12,21 @@ struct Book {
     let id: Int
     let name: String
     let coverImageURL: URL
-    let author: String
-    let publisher: String
+    let author: Author
     let weight: Double
     let page: Int
-    let grade: Int
-    let reviews: [String]
-    let salePrice: Double
-    let usedPrice: Double
+    let salePrice: Int
 }
 
 extension Book: Codable {
     enum CodingKeys: String, CodingKey {
-        case id, name, author, publisher, weight, page, grade, reviews
+        case id, name, author, weight, page
         case coverImageURL = "cover_image_url"
         case salePrice = "sale_price"
-        case usedPrice = "used_price"
     }
+}
+
+struct Author: Codable {
+    let id: Int
+    let name: String
 }

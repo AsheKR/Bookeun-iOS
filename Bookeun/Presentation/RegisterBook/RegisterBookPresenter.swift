@@ -15,7 +15,7 @@ class RegisterBookPresenter: PresenterProtocol {
     unowned let view: RegisterBookViewController
     required init(view: View) { self.view = view }
     let disposeBag = DisposeBag()
-    var book: Book? = nil
+    var book: Book?
     
     func getBookData(_ isbm: String) {
         Repo.shared.book.getBook(isbm: isbm)

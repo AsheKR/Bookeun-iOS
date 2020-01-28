@@ -27,7 +27,7 @@ class TrainerSelectViewController: ViewController<TrainerSelectPresenter>, UICol
         
         if let trainer = selectedCell?.trainer {
             Store.share.setTrainer(trainer)
-//            present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
+            present(BarcodeViewController(), animated: true, completion: nil)
         } else {
             presentErrorView()
         }

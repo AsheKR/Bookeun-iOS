@@ -45,6 +45,10 @@ class BarcodeViewController: EmptyViewController {
         super.viewDidDisappear(animated)
         barcodeView.stop()
     }
+    
+    override func initialize() {
+        self.modalPresentationStyle = .fullScreen
+    }
 
     override func attribute() {
         barcodeView.do {

@@ -35,8 +35,9 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
     }
     
     @objc func didTapBackButton() {
-        delegate?.didEndBreak()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) { [weak self] in
+            self?.delegate?.didEndBreak()
+        }
     }
     
     func setBookTitleAndAuthor(title: String, author: String) {

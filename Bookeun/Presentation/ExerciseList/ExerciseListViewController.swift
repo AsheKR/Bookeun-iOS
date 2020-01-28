@@ -38,6 +38,11 @@ class ExerciseListViewController: ViewController<ExerciseListViewControllerPrese
     
     @IBAction private func actionNextButton(_ sender: UIButton) {
         presenter.updateStore()
+        guard let vc = UIStoryboard(name: "ExerciseViewController", bundle: nil).instantiateInitialViewController() as? ExerciseViewController else {
+            present(ErrorViewController(), animated: true, completion: nil)
+            return
+        }
+        present(vc, animated: true, completion: nil)
     }
 }
 

@@ -24,6 +24,10 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
     
     var bookISBMCode: String?
     
+    override func initialize() {
+        self.modalPresentationStyle = .fullScreen
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let bookISBMCode = bookISBMCode else {
@@ -45,7 +49,7 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
             $0.layer.cornerRadius = 12.0
         }
         
-        bookInfoWrapperView.subviews.forEach{ view in
+        bookInfoWrapperView.subviews.forEach { view in
             view.layer.borderColor = UIColor(red: 215/256, green: 215/256, blue: 215/256, alpha: 1.0).cgColor
             view.layer.borderWidth = 1.0
             view.layer.cornerRadius = 16.0
@@ -61,10 +65,10 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
         contentImageView.kf.setImage(with: book.coverImageURL)
         bookTitleLabel.text = book.name
         contentBookLabel.text = book.name
-        contentWriterLabel.text = book.author
+        contentWriterLabel.text = book.author.name
         contentPageLabel.text = "\(book.page)page"
         contentWeightLabel.text = "\(book.weight)g"
-        contentPriceLabel.text = "\(book.usedPrice)원"
+        contentPriceLabel.text = "\(book.salePrice)원"
     }
     
     func presentErrorView() {
@@ -77,5 +81,11 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
     
     @objc private func didTapConformButton(_ sener: UIButton) {
         presenter.storeBook()
+        guard let selectExerciseViewController =
+            UIStoryboard(name: "SelectExercise", bundle: nil).instantiateInitialViewController() as? SelectExerciseViewController else {
+                presentErrorView()
+                return
+        }
+        present(selectExerciseViewController, animated: true, completion: nil)
     }
 }
