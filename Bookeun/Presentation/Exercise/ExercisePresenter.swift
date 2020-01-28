@@ -116,7 +116,7 @@ class ExercisePresenter: PresenterProtocol {
             setExerciseImage(currentExerciseImageURLString)
             view.hideTimerView(true)
             
-            guard let book = Store.share.bookList?.first else {
+            guard let book = Store.share.book else {
                 return
             }
             showBreakTimeView(with: book)
@@ -152,6 +152,9 @@ extension ExercisePresenter: BreakDelegate {
         exerciseIndex += 1
         if exerciseIndex == exerciseList.count { // 모든 운동이 끝난 경우
             // END
+            let resultViewContrller = ResultViewController()
+            resultViewContrller.modalPresentationStyle = .fullScreen
+            view.present(resultViewContrller, animated: true, completion: nil)
         } else { // 운동이 더 남아있는 경우
             guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
                 return
