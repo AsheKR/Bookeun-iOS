@@ -13,7 +13,7 @@ class Store {
     
     private(set) var trainer: Trainer?
     private(set) var exerciseList: [ExerciseWithCount]?
-    private(set) var bookList: [Book]?
+    private(set) var book: Book?
     
     func setTrainer(_ trainer: Trainer) {
         self.trainer = trainer
@@ -23,7 +23,7 @@ class Store {
         self.exerciseList = exerciseList
     }
     
-    func setBookList(_ bookList: [Book]) {
-        self.bookList = bookList
+    func setBook(_ book: Book) {
+        self.book = book
     }
 }
