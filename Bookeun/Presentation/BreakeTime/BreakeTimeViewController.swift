@@ -23,6 +23,8 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
     let reviewLabel = UILabel()
     let reviewReadingButton = UIButton()
     
+    weak var delegate: BreakDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
@@ -30,6 +32,11 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
     
     @objc func didTapReadingButton() {
         presenter.didTapReadingButton()
+    }
+    
+    @objc func didTapBackButton() {
+        delegate?.didEndBreak()
+        dismiss(animated: true, completion: nil)
     }
     
     func setBookTitleAndAuthor(title: String, author: String) {
@@ -92,6 +99,7 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         
         backButton.do {
             $0.tintColor = .black
+            $0.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
             $0.setImage(#imageLiteral(resourceName: "btnBack.pdf").withRenderingMode(.alwaysTemplate), for: .normal)
         }
         

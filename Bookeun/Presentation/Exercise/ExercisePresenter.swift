@@ -49,7 +49,11 @@ class ExercisePresenter: PresenterProtocol {
             view.presentErrorView()
             return
         }
-        self.exerciseList = list
+        exerciseList = list
+        guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
+            return
+        }
+        timerCount = exerciseList[exerciseIndex].count * timePerExercise
     }
     
     func setCurrentExercise() {
@@ -123,6 +127,7 @@ class ExercisePresenter: PresenterProtocol {
         let endViewController = BreakeTimeViewController()
         endViewController.modalPresentationStyle = .fullScreen
         endViewController.presenter.setBook(book)
+        endViewController.delegate = self
         view.present(endViewController, animated: true, completion: nil)
     }
     
@@ -138,6 +143,20 @@ class ExercisePresenter: PresenterProtocol {
             }
         } else {
             exerciseTimer()
+        }
+    }
+}
+
+extension ExercisePresenter: BreakDelegate {
+    func didEndBreak() {
+        exerciseIndex += 1
+        if exerciseIndex == exerciseList.count { // 모든 운동이 끝난 경우
+            // END
+        } else { // 운동이 더 남아있는 경우
+            guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
+                return
+            }
+            timerCount = exerciseList[exerciseIndex].count * timePerExercise
         }
     }
 }
