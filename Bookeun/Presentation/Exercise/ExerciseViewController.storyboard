@@ -266,11 +266,12 @@
                         <outlet property="explainExerciseButton" destination="ov2-gg-6ju" id="YAy-TA-mUb"/>
                         <outlet property="explainExerciseView" destination="HGh-fD-i5t" id="uYm-xM-01f"/>
                         <outlet property="explainTableView" destination="7jd-wd-Jlq" id="aR1-Xg-YeO"/>
-                        <outlet property="hideExplainView" destination="UDO-QG-jmP" id="8kd-Vg-zOp"/>
                         <outlet property="nameLabel" destination="HtD-DZ-trz" id="M73-8a-drJ"/>
                         <outlet property="readyButton" destination="9QE-5t-aaA" id="hR5-MS-Kna"/>
                         <outlet property="readyLabel" destination="yKj-qa-Jil" id="wU9-W5-7dE"/>
                         <outlet property="readyView" destination="3vq-vQ-dIu" id="fhE-86-maq"/>
+                        <outlet property="setTimeLabel" destination="mMc-f1-seQ" id="gNo-kn-X3e"/>
+                        <outlet property="setTimeWrapperView" destination="UDO-QG-jmP" id="heZ-Ls-D4u"/>
                         <outlet property="timerCountLabel" destination="L7V-zQ-1ZT" id="FF1-9f-8LS"/>
                         <outlet property="timerView" destination="4xY-ii-ftU" id="3NQ-SE-JEO"/>
                     </connections>
