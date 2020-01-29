@@ -18,11 +18,13 @@ class RegisterBookPresenter: PresenterProtocol {
     var book: Book?
     
     func getBookData(_ isbm: String) {
+        view.activateConformButton(false)
         Repo.shared.book.getBook(isbm: isbm)
             .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { [weak self, weak view] book in
                 self?.book = book
                 view?.setBook(book)
+                view?.activateConformButton(false)
             }, onError: { [weak view] _ in
                 view?.presentErrorView()
             })

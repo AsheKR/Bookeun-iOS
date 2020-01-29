@@ -71,6 +71,10 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
         contentPriceLabel.text = "\(book.salePrice)원"
     }
     
+    func activateConformButton(_ activate: Bool) {
+        bottomConformButton.isEnabled = activate
+    }
+    
     func presentErrorView() {
         present(ErrorViewController(), animated: true, completion: nil)
     }
