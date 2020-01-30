@@ -32,8 +32,8 @@ class ExerciseListViewController: ViewController<ExerciseListViewControllerPrese
     
     func updateTotalDuration(name: String, duration: String, set: String) {
         categoriesLabel.text = name
-        durationLabel.text = duration
-        setCountLabel.text = set
+        durationLabel.text = "\(duration)분"
+        setCountLabel.text = "\(set)세트"
     }
     
     @IBAction private func actionNextButton(_ sender: UIButton) {
@@ -72,7 +72,7 @@ extension ExerciseListViewController: UITableViewDataSource {
 
 extension ExerciseListViewController: ExerciseListViewCellDelegate {
     
-    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int, at index: Int?) {
+    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int?, at index: Int?) {
         presenter.updateTotalDuration(oldCount, newCount, time, at: index)
     }
 }

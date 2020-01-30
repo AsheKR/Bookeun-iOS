@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ExerciseListViewCellDelegate: class {
-    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int, at index: Int?)
+    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int?, at index: Int?)
 }
 
 class ExerciseListViewCell: UITableViewCell, Nameable {
@@ -39,14 +39,17 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
         totalDurationContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
     }
     
-    private func makeTime() -> Int {
+    private func makeTime() -> Int? {
         let timeText = timeLabel.text?.split(separator: "분").first ?? ""
-        return Int(timeText) ?? 1
+        return Int(timeText)
     }
     
     private func updateTotalDuration(_ count: Int) {
-        let time = makeTime()
-        totalDurationLabel.text = "총 \(count * time)분"
+        if let time = makeTime() {
+            totalDurationLabel.text = "총 \(count * time)분"
+        } else {
+            totalDurationLabel.text = "총 \("?")분"
+        }
     }
     
     @IBAction private func actionTapButton(_ sender: UIButton) {
@@ -70,7 +73,11 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
         countLabel.text = "\(exerciseWithCount.count)"
         categoryLabel.text = exerciseWithCount.exercise.category.name
         exerciseLabel.text = exerciseWithCount.exercise.name
-        timeLabel.text = "\(exerciseWithCount.exercise.exerciseTime ?? 2)분"
+        if let exerciseTime = exerciseWithCount.exercise.exerciseTime {
+            timeLabel.text = "\(exerciseTime)분"
+        } else {
+            timeLabel.text = "?분"
+        }
         updateTotalDuration(exerciseWithCount.count)
     }
 }
