@@ -86,6 +86,10 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
                 presentErrorView()
                 return
         }
-        present(selectExerciseViewController, animated: true, completion: nil)
+        
+        let naviation = UINavigationController(rootViewController: selectExerciseViewController)
+        naviation.modalPresentationStyle = .fullScreen
+        
+        present(naviation, animated: true, completion: nil)
     }
 }
