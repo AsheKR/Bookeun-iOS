@@ -26,7 +26,7 @@ class BreakeTimePresenter: PresenterProtocol {
     func setBook(_ book: Book) {
         self.book = book
         
-        Repo.shared.book.getBookReviewList(isbm: book.isbm)
+        Repo.shared.book.getBookReviewList(isbn: book.isbn)
             .map { $0.randomElement() }
             .map { $0?.content ?? "이런.. 이 책에 리뷰가 없어요 ㅠㅠ"}
             .catchErrorJustReturn("오류가 발생했어요")

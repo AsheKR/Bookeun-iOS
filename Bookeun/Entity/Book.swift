@@ -10,7 +10,7 @@ import Foundation
 
 struct Book {
     let id: Int
-    let isbm: String
+    let isbn: String
     let name: String
     let coverImageURL: URL
     let author: Author
@@ -21,7 +21,7 @@ struct Book {
 
 extension Book: Codable {
     enum CodingKeys: String, CodingKey {
-        case id, isbm, name, author, weight, page
+        case id, isbn, name, author, weight, page
         case coverImageURL = "cover_image_url"
         case salePrice = "sale_price"
     }

@@ -17,9 +17,10 @@ class RegisterBookPresenter: PresenterProtocol {
     let disposeBag = DisposeBag()
     var book: Book?
     
-    func getBookData(_ isbm: String) {
-        Repo.shared.book.getBook(isbm: isbm)
+    func getBookData(_ isbn: String) {
+        Repo.shared.book.getBook(isbn: isbn)
             .observeOn(MainScheduler.instance)
+            .debug("xxx")
             .subscribe(onSuccess: { [weak self, weak view] book in
                 self?.book = book
                 view?.setBook(book)

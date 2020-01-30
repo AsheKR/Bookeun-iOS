@@ -19,8 +19,8 @@ enum BookeunAPI {
     case getExerciseListWithCategory(categoryID: String)
     case getExercise(id: String)
     
-    case getBook(isbm: String)
-    case getBookReviewList(isbm: String)
+    case getBook(isbn: String)
+    case getBookReviewList(isbn: String)
 }
 
 extension BookeunAPI: TargetType {
@@ -42,10 +42,10 @@ extension BookeunAPI: TargetType {
             return "v1/exercise_categories/\(categoryID)"
         case .getExercise(let id):
             return "v1/exercises/\(id)"
-        case .getBook(let isbm):
-            return "v1/books/\(isbm)"
-        case .getBookReviewList(let isbm):
-            return "v1/books/\(isbm)/reviews"
+        case .getBook(let isbn):
+            return "v1/books/\(isbn)"
+        case .getBookReviewList(let isbn):
+            return "v1/books/\(isbn)/reviews"
         }
     }
     

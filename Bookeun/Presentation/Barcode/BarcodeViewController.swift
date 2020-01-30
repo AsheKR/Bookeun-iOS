@@ -30,7 +30,7 @@ class BarcodeViewController: EmptyViewController {
                 guard let view = UIStoryboard(name: "RegisterBookViewController", bundle: nil).instantiateInitialViewController() as? RegisterBookViewController else {
                     return
                 }
-                view.bookISBMCode = code
+                view.bookISBNCode = code
                 self?.present(view, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
