@@ -12,6 +12,7 @@ import Moya
 
 protocol BookRepository {
     func getBook(isbm: String) -> Single<Book>
+    func getBookReviewList(isbm: String) -> Single<[BookReview]>
 }
 
 class BookRepositoryImpl: NetworkRepository<BookeunAPI>, BookRepository {
@@ -19,5 +20,11 @@ class BookRepositoryImpl: NetworkRepository<BookeunAPI>, BookRepository {
         provider.rx.request(.getBook(isbm: isbm))
             .filterSuccessfulStatusCodes()
             .map(Book.self)
+    }
+    
+    func getBookReviewList(isbm: String) -> Single<[BookReview]> {
+        provider.rx.request(.getBookReviewList(isbm: isbm))
+            .filterSuccessfulStatusCodes()
+            .map([BookReview].self)
     }
 }

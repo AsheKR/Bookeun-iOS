@@ -20,6 +20,7 @@ enum BookeunAPI {
     case getExercise(id: String)
     
     case getBook(isbm: String)
+    case getBookReviewList(isbm: String)
 }
 
 extension BookeunAPI: TargetType {
@@ -43,6 +44,8 @@ extension BookeunAPI: TargetType {
             return "v1/exercises/\(id)"
         case .getBook(let isbm):
             return "v1/books/\(isbm)"
+        case .getBookReviewList(let isbm):
+            return "v1/books/\(isbm)/reviews"
         }
     }
     

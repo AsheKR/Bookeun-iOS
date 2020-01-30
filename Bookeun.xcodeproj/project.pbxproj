@@ -41,6 +41,7 @@
 		C9B5DA2923D2BE360003A226 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5DA2823D2BE360003A226 /* ResultViewController.swift */; };
 		C9B5DA2B23D2BE5A0003A226 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5DA2A23D2BE5A0003A226 /* ResultPresenter.swift */; };
 		C9B5DA2D23D2BF290003A226 /* SubResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5DA2C23D2BF290003A226 /* SubResultView.swift */; };
+		C9CB29CE23E29494009AA72C /* BookReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB29CD23E29494009AA72C /* BookReview.swift */; };
 		CEAC126B23897878008B69F7 /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC126923897877008B69F7 /* Nameable.swift */; };
 		CEAC126C23897878008B69F7 /* CenterCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC126A23897877008B69F7 /* CenterCollectionLayout.swift */; };
 		CEAC1285238978BB008B69F7 /* ExerciseList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC127D238978BB008B69F7 /* ExerciseList.storyboard */; };
@@ -105,6 +106,7 @@
 		C9B5DA2823D2BE360003A226 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C9B5DA2A23D2BE5A0003A226 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		C9B5DA2C23D2BF290003A226 /* SubResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubResultView.swift; sourceTree = "<group>"; };
+		C9CB29CD23E29494009AA72C /* BookReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReview.swift; sourceTree = "<group>"; };
 		CEAC126923897877008B69F7 /* Nameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		CEAC126A23897877008B69F7 /* CenterCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCollectionLayout.swift; sourceTree = "<group>"; };
 		CEAC127D238978BB008B69F7 /* ExerciseList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExerciseList.storyboard; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				C903E07223890C330083D079 /* Book.swift */,
 				C903E07423890CCC0083D079 /* Trainer.swift */,
 				CEAC129023899EB5008B69F7 /* Store.swift */,
+				C9CB29CD23E29494009AA72C /* BookReview.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				C924D7992386C8DD002ADF0C /* AppDelegate.swift in Sources */,
 				C903E07523890CCC0083D079 /* Trainer.swift in Sources */,
 				C903E07B2389237C0083D079 /* View.swift in Sources */,
+				C9CB29CE23E29494009AA72C /* BookReview.swift in Sources */,
 				C903E0872389332A0083D079 /* BarcodePresenter.swift in Sources */,
 				D918537423A8D1B00033CA75 /* ExerciseImageUrl.swift in Sources */,
 				C903E093238951050083D079 /* BookRepository.swift in Sources */,
