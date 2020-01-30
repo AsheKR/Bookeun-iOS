@@ -101,13 +101,15 @@ class ExercisePresenter: PresenterProtocol {
         if exerciseImageIndex < 3 {
             // 0 1 2
             // 0 2 4
-//            setExerciseImage(exercise.imageURLs[exerciseImageIndex*2].url)
+            // TODO:
+            // setExerciseImage(exercise.imageURLs[exerciseImageIndex*2].url)
             setExerciseImage(exercise.imageURLs[0].url)
         } else {
             // 3 4 5
             // 0 2 4
+            // TODO:
+            // setExerciseImage(exercise.imageURLs[(exerciseImageIndex-3)*2].url)
             setExerciseImage(exercise.imageURLs[0].url)
-//            setExerciseImage(exercise.imageURLs[(exerciseImageIndex-3)*2].url)
         }
         exerciseImageIndex += 1
         
@@ -133,17 +135,14 @@ class ExercisePresenter: PresenterProtocol {
     }
     
     func showBreakTimeView(with book: Book) {
-        let endViewController = BreakeTimeViewController()
-        endViewController.modalPresentationStyle = .fullScreen
-        endViewController.presenter.setBook(book)
-        endViewController.delegate = self
-        view.present(endViewController, animated: true, completion: nil)
+        let breaTimekView = BreakeTimeViewController()
+        breaTimekView.presenter.setBook(book)
+        breaTimekView.delegate = self
+        view.present(breaTimekView, animated: true, completion: nil)
     }
     
     func showResultView() {
-        let resultViewContrller = ResultViewController()
-        resultViewContrller.modalPresentationStyle = .fullScreen
-        view.present(resultViewContrller, animated: true, completion: nil)
+        view.present(ResultViewController(), animated: true, completion: nil)
     }
     
     @objc private func actionPerSecond(_ sender: Timer) {

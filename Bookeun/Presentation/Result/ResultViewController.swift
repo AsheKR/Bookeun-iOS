@@ -142,4 +142,8 @@ class ResultViewController: ViewController<ResultPresenter> {
             $0.height.equalTo(50)
         }
     }
+    
+    override func initialize() {
+        self.modalPresentationStyle = .fullScreen
+    }
 }

@@ -101,7 +101,6 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
                                     .instantiateViewController(withIdentifier: ExerciseListViewController.identifier) as? ExerciseListViewController else { return }
         viewController.presenter.selectedExerciseList = presenter.selectedExerciseList.map({ ExerciseWithCount(exercise: $0, count: 0) })
         present(viewController, animated: true, completion: nil)
-//        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func presentErrorView(error: Error) {
