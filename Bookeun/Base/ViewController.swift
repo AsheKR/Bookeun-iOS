@@ -58,7 +58,7 @@ class ViewController<P: PresenterProtocol>: UIViewController, Nameable {
         }
     }
     
-    @objc private func actionBackButton(_ sender: UIButton) {
+    @objc func actionBackButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 }
