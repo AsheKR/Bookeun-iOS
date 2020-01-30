@@ -64,12 +64,13 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
         }
     }
     
-    func setExercise(_ exercise: Exercise, at index: Int) {
+    func setExercise(_ exerciseWithCount: ExerciseWithCount, at index: Int) {
         self.index = index
         
-        categoryLabel.text = exercise.category.name
-        exerciseLabel.text = exercise.name
-        timeLabel.text = "\(exercise.exerciseTime ?? 2)분"
+        countLabel.text = "\(exerciseWithCount.count)"
+        categoryLabel.text = exerciseWithCount.exercise.category.name
+        exerciseLabel.text = exerciseWithCount.exercise.name
+        timeLabel.text = "\(exerciseWithCount.exercise.exerciseTime ?? 2)분"
         updateTotalDuration(3)
     }
 }

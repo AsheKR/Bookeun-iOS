@@ -20,6 +20,7 @@ class ResultViewController: ViewController<ResultPresenter> {
     let pageInfoPostfixLabel = UILabel()
     let calorieView = SubResultView(title: "소비칼로리", image: UIImage())
     let knowledgeView = SubResultView(title: "상승한 지식", image: UIImage())
+    let finishButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,10 @@ class ResultViewController: ViewController<ResultPresenter> {
         
         let knowledgeNumber = presenter.getKnowledgeNumber()
         knowledgeView.setResult(knowledgeNumber.description, unit: "북근 포인트")
+    }
+    
+    @objc func didTapFinishButton() {
+        exit(0)
     }
     
     override func attribute() {
@@ -78,13 +83,22 @@ class ResultViewController: ViewController<ResultPresenter> {
             $0.font = .systemFont(ofSize: 24, weight: .bold)
             $0.numberOfLines = 1
         }
+        
+        finishButton.do {
+            $0.setTitle("운동 완료", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+            $0.backgroundColor = .brightSeaGreen
+            $0.layer.cornerRadius = 23
+            $0.addTarget(self, action: #selector(didTapFinishButton), for: .touchUpInside)
+        }
     }
     
     override func layout() {
         view.addSubviews(
             messageImageView, messageLabel, trainerImageView,
             pageInfoPrefixLabel, pageInfoContentLabel, pageInforContentUnderline, pageInfoPostfixLabel,
-            calorieView, knowledgeView
+            calorieView, knowledgeView, finishButton
         )
         
         messageImageView.snp.makeConstraints {
@@ -102,12 +116,12 @@ class ResultViewController: ViewController<ResultPresenter> {
         trainerImageView.snp.makeConstraints {
             $0.top.equalTo(messageImageView.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(pageInfoPrefixLabel.snp.top).offset(-24)
+            $0.bottom.equalTo(pageInfoPrefixLabel.snp.top).offset(-10)
             $0.width.equalTo(trainerImageView.snp.height)
         }
         
         pageInfoPrefixLabel.snp.makeConstraints {
-            $0.top.equalTo(view.snp.centerY).offset(100)
+            $0.top.equalTo(view.snp.centerY).offset(50)
             $0.left.equalToSuperview().offset(30)
         }
         pageInfoPrefixLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -131,15 +145,21 @@ class ResultViewController: ViewController<ResultPresenter> {
         pageInfoPostfixLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         calorieView.snp.makeConstraints {
-            $0.top.equalTo(pageInfoContentLabel.snp.bottom).offset(60)
+            $0.top.equalTo(pageInfoContentLabel.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(30)
             $0.height.equalTo(50)
         }
         
         knowledgeView.snp.makeConstraints {
-            $0.top.equalTo(calorieView.snp.bottom).offset(40)
+            $0.top.equalTo(calorieView.snp.bottom).offset(20)
             $0.left.right.equalToSuperview().inset(30)
             $0.height.equalTo(50)
+        }
+        
+        finishButton.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(30)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(46)
         }
     }
     

@@ -11,22 +11,23 @@ import RxSwift
 
 class ExerciseListViewControllerPresenter: PresenterProtocol {
     
+    static let defaultSetCount: Int = 1
+    
     typealias View = ExerciseListViewController
     
     unowned let view: View
     
     required init(view: ExerciseListViewController) { self.view = view }
     
-    let defaultSetCount: Int = 3
     let disposeBag = DisposeBag()
     
     var selectedExerciseList: [ExerciseWithCount] = []
     var exerciseTime: (duration: Int, set: Int) = (0, 0)
     
     func updateTotalDuration() {
-        let duration = selectedExerciseList.compactMap({ ($0.exercise.exerciseTime ?? 2) * defaultSetCount })
+        let duration = selectedExerciseList.compactMap({ ($0.exercise.exerciseTime ?? 2) * ExerciseListViewControllerPresenter.defaultSetCount })
                                             .reduce(0, +)
-        exerciseTime = (duration, defaultSetCount * selectedExerciseList.count)
+        exerciseTime = (duration, ExerciseListViewControllerPresenter.defaultSetCount * selectedExerciseList.count)
         
         view.updateTotalDuration(name: selectedExerciseList.map({ $0.exercise.category.name })
                                                             .joined(separator: ","),
