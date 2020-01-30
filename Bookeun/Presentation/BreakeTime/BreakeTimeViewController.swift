@@ -35,8 +35,9 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
     }
     
     @objc func didTapBackButton() {
-        delegate?.didEndBreak()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) { [weak self] in
+            self?.delegate?.didEndBreak()
+        }
     }
     
     func setBookTitleAndAuthor(title: String, author: String) {
@@ -49,6 +50,10 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
     
     func showErrorView() {
         present(ErrorViewController(), animated: true, completion: nil)
+    }
+    
+    override func initialize() {
+        self.modalPresentationStyle = .fullScreen
     }
     
     override func attribute() {

@@ -100,7 +100,7 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
         guard let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil)
                                     .instantiateViewController(withIdentifier: ExerciseListViewController.identifier) as? ExerciseListViewController else { return }
         viewController.presenter.selectedExerciseList = presenter.selectedExerciseList.map({ ExerciseWithCount(exercise: $0, count: 0) })
-        navigationController?.pushViewController(viewController, animated: true)
+        present(viewController, animated: true, completion: nil)
     }
     
     func presentErrorView(error: Error) {

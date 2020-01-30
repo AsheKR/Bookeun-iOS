@@ -36,6 +36,10 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
         presenter.setUpView()
     }
     
+    override func initialize() {
+        modalPresentationStyle = .fullScreen
+    }
+    
     override func attribute() {
         hideExplainView.do {
             $0.layer.cornerRadius = 17.0

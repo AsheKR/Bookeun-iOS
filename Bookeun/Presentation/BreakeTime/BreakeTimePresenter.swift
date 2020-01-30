@@ -24,7 +24,8 @@ class BreakeTimePresenter: PresenterProtocol {
     
     func setBook(_ book: Book) {
         self.book = book
-        self.review = book.reviews.randomElement()
+//        self.review = book.reviews.randomElement()
+        self.review = "review"
     }
     
     func viewDidLoad() {
@@ -33,7 +34,7 @@ class BreakeTimePresenter: PresenterProtocol {
             return
         }
         
-        view.setBookTitleAndAuthor(title: book.name, author: book.author)
+        view.setBookTitleAndAuthor(title: book.name, author: book.author.name)
         view.setReview(review)
     }
     
