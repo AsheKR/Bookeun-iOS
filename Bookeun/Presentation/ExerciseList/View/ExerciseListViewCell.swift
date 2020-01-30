@@ -71,6 +71,6 @@ class ExerciseListViewCell: UITableViewCell, Nameable {
         categoryLabel.text = exerciseWithCount.exercise.category.name
         exerciseLabel.text = exerciseWithCount.exercise.name
         timeLabel.text = "\(exerciseWithCount.exercise.exerciseTime ?? 2)분"
-        updateTotalDuration(3)
+        updateTotalDuration(exerciseWithCount.count)
     }
 }
