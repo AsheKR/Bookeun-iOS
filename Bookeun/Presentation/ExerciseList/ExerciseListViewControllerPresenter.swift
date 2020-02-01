@@ -22,33 +22,46 @@ class ExerciseListViewControllerPresenter: PresenterProtocol {
     let disposeBag = DisposeBag()
     
     var selectedExerciseList: [ExerciseWithCount] = []
-    var exerciseTime: (duration: Int, set: Int) = (0, 0)
+    var exerciseTime: (duration: Int?, set: Int) = (nil, 0)
     
     func updateTotalDuration() {
-        let duration = selectedExerciseList.compactMap({ ($0.exercise.exerciseTime ?? 2) * ExerciseListViewControllerPresenter.defaultSetCount })
+        let duration = selectedExerciseList.compactMap({ ($0.exercise.exerciseTime ?? 0) * ExerciseListViewControllerPresenter.defaultSetCount })
                                             .reduce(0, +)
         exerciseTime = (duration, ExerciseListViewControllerPresenter.defaultSetCount * selectedExerciseList.count)
         
+        var exerciseDuration: String
+        if let duration = exerciseTime.duration {
+            exerciseDuration = "\(duration)"
+        } else {
+            exerciseDuration = "?"
+        }
         view.updateTotalDuration(name: selectedExerciseList.map({ $0.exercise.category.name })
                                                             .joined(separator: ","),
-                                duration: "\(exerciseTime.duration)분",
-                                set: "\(exerciseTime.set)세트")
+                                duration: "\(exerciseDuration)",
+                                set: "\(exerciseTime.set)")
     }
     
-    func updateTotalDuration(_ oldCount: Int, _ newCount: Int, _ time: Int, at index: Int?) {
+    func updateTotalDuration(_ oldCount: Int, _ newCount: Int, _ time: Int?, at index: Int?) {
         
         if let index = index, index < selectedExerciseList.count {
             selectedExerciseList[index].count = newCount
         }
         
         let changed = newCount - oldCount
-        exerciseTime.duration += changed * time
+        var durationString: String
+        if let duration = exerciseTime.duration, let time = time {
+            let value = duration + changed * time
+            exerciseTime.duration = value
+            durationString = "\(value)"
+        } else {
+            durationString = "?"
+        }
         exerciseTime.set += changed
         
         view.updateTotalDuration(name: selectedExerciseList.map({ $0.exercise.category.name })
                                                             .joined(separator: ","),
-                                duration: "\(exerciseTime.duration)분",
-                                set: "\(exerciseTime.set)세트")
+                                duration: "\(durationString)",
+                                set: "\(exerciseTime.set)")
     }
     
     func updateStore() {
