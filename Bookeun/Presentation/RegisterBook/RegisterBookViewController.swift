@@ -22,7 +22,7 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
     @IBOutlet weak var contentWeightLabel: UILabel!
     @IBOutlet weak var contentPriceLabel: UILabel!
     
-    var bookISBMCode: String?
+    var bookISBNCode: String?
     
     override func initialize() {
         self.modalPresentationStyle = .fullScreen
@@ -30,11 +30,11 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let bookISBMCode = bookISBMCode else {
+        guard let bookISBNCode = bookISBNCode else {
             presentErrorView()
             return
         }
-        presenter.getBookData(bookISBMCode)
+        presenter.getBookData(bookISBNCode)
     }
     
     override func attribute() {
@@ -90,6 +90,10 @@ class RegisterBookViewController: ViewController<RegisterBookPresenter> {
                 presentErrorView()
                 return
         }
-        present(selectExerciseViewController, animated: true, completion: nil)
+        
+        let naviation = UINavigationController(rootViewController: selectExerciseViewController)
+        naviation.modalPresentationStyle = .fullScreen
+        
+        present(naviation, animated: true, completion: nil)
     }
 }

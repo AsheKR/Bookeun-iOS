@@ -64,7 +64,7 @@ extension ExerciseListViewController: UITableViewDataSource {
         let exerciseWithCount = presenter.selectedExerciseList[indexPath.row]
         
         cell.delegate = self
-        cell.setExercise(exerciseWithCount.exercise, at: indexPath.row)
+        cell.setExercise(exerciseWithCount, at: indexPath.row)
         
         return cell
     }
@@ -72,7 +72,7 @@ extension ExerciseListViewController: UITableViewDataSource {
 
 extension ExerciseListViewController: ExerciseListViewCellDelegate {
     
-    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int, at index: Int?) {
+    func didUpdateDuration(oldCount: Int, newCount: Int, time: Int?, at index: Int?) {
         presenter.updateTotalDuration(oldCount, newCount, time, at: index)
     }
 }

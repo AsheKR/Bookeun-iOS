@@ -23,6 +23,12 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
         super.viewWillAppear(animated)
         
         presenter.request()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        setFlowLayout()
         scrollToCenter()
     }
 
@@ -42,13 +48,15 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        setFlowLayout()
+    }
+    
+    @objc override func actionBackButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     private func setFlowLayout() {
         let flowLayout = CenterCollectionLayout()
-        let width: CGFloat = 217.0
+        let width: CGFloat = collectionView.bounds.width / 4.0
         let margin: CGFloat = collectionView.bounds.width - width
         
         flowLayout.itemSize = CGSize(width: margin, height: collectionView.bounds.height)
@@ -56,8 +64,9 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
         flowLayout.minimumLineSpacing = 16.0
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
-
+        
         collectionView.collectionViewLayout = flowLayout
+        collectionView.contentInsetAdjustmentBehavior = .never
     }
     
     private func setSelect(_ index: Int, selected: Bool) {
@@ -79,6 +88,8 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
         // TODO: 데이터 없을 때, 체크 필요
         
         print("\(scrollIndex)")
+        collectionView.setContentOffset(.zero, animated: false)
+        
         let indexPath = IndexPath(row: scrollIndex, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         
@@ -99,9 +110,9 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     @IBAction private func actionNextButton(_ sender: UIButton) {
         guard let viewController = UIStoryboard(name: ExerciseListViewController.storyboardName, bundle: nil)
                                     .instantiateViewController(withIdentifier: ExerciseListViewController.identifier) as? ExerciseListViewController else { return }
-        viewController.presenter.selectedExerciseList = presenter.selectedExerciseList.map({ ExerciseWithCount(exercise: $0, count: 0) })
-        present(viewController, animated: true, completion: nil)
-//        navigationController?.pushViewController(viewController, animated: true)
+
+        viewController.presenter.selectedExerciseList = presenter.selectedExerciseList.map({ ExerciseWithCount(exercise: $0, count: ExerciseListViewControllerPresenter.defaultSetCount) })
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func presentErrorView(error: Error) {

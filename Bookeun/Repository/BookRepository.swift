@@ -11,13 +11,20 @@ import RxSwift
 import Moya
 
 protocol BookRepository {
-    func getBook(isbm: String) -> Single<Book>
+    func getBook(isbn: String) -> Single<Book>
+    func getBookReviewList(isbn: String) -> Single<[BookReview]>
 }
 
 class BookRepositoryImpl: NetworkRepository<BookeunAPI>, BookRepository {
-    func getBook(isbm: String) -> Single<Book> {
-        provider.rx.request(.getBook(isbm: isbm))
+    func getBook(isbn: String) -> Single<Book> {
+        provider.rx.request(.getBook(isbn: isbn))
             .filterSuccessfulStatusCodes()
             .map(Book.self)
+    }
+    
+    func getBookReviewList(isbn: String) -> Single<[BookReview]> {
+        provider.rx.request(.getBookReviewList(isbn: isbn))
+            .filterSuccessfulStatusCodes()
+            .map([BookReview].self)
     }
 }

@@ -91,7 +91,8 @@ class ExercisePresenter: PresenterProtocol {
             view.presentErrorView()
             return
         }
-        timerCount = exerciseList[exerciseIndex].count * timePerExercise * 60
+//        timerCount = exerciseList[exerciseIndex].count * timePerExercise * 60
+        timerCount = exerciseList[exerciseIndex].count * timePerExercise * 5
     }
     
     func exerciseTimer() {
@@ -127,7 +128,7 @@ class ExercisePresenter: PresenterProtocol {
             view.presentErrorView()
             return
         }
-        if exerciseIndex == exerciseList.count {
+        if exerciseIndex == exerciseList.count - 1 {
             showResultView()
         } else {
             showBreakTimeView(with: book)
@@ -135,17 +136,14 @@ class ExercisePresenter: PresenterProtocol {
     }
     
     func showBreakTimeView(with book: Book) {
-        let endViewController = BreakeTimeViewController()
-        endViewController.modalPresentationStyle = .fullScreen
-        endViewController.presenter.setBook(book)
-        endViewController.delegate = self
-        view.present(endViewController, animated: true, completion: nil)
+        let breaTimekView = BreakeTimeViewController()
+        breaTimekView.presenter.setBook(book)
+        breaTimekView.delegate = self
+        view.present(breaTimekView, animated: true, completion: nil)
     }
     
     func showResultView() {
-        let resultViewContrller = ResultViewController()
-        resultViewContrller.modalPresentationStyle = .fullScreen
-        view.present(resultViewContrller, animated: true, completion: nil)
+        view.present(ResultViewController(), animated: true, completion: nil)
     }
     
     @objc private func actionPerSecond(_ sender: Timer) {
@@ -167,6 +165,7 @@ class ExercisePresenter: PresenterProtocol {
 extension ExercisePresenter: BreakDelegate {
     func didEndBreak() {
         exerciseIndex += 1
+        exerciseImageIndex = 0
         setCurrentExercise()
         setTimerCount()
     }

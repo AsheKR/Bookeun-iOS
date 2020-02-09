@@ -28,6 +28,7 @@ extension Exercise: Codable {
         case exerciseTime = "time"
         case imageURLs = "images"
     }
+    
 }
 
 enum ExercisePower: String, Codable {

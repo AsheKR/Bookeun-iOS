@@ -52,6 +52,10 @@ class BreakeTimeViewController: ViewController<BreakeTimePresenter> {
         present(ErrorViewController(), animated: true, completion: nil)
     }
     
+    override func initialize() {
+        self.modalPresentationStyle = .fullScreen
+    }
+    
     override func attribute() {
         titleLabel.do {
             $0.text = "조금 쉬어갑시다"

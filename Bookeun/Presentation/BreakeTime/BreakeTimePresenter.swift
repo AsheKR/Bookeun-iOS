@@ -14,6 +14,7 @@ class BreakeTimePresenter: PresenterProtocol {
     typealias View = BreakeTimeViewController
     unowned let view: BreakeTimeViewController
     
+    let disposeBag = DisposeBag()
     let synthesizer = AVSpeechSynthesizer()
     var book: Book?
     var review: String?
@@ -24,18 +25,25 @@ class BreakeTimePresenter: PresenterProtocol {
     
     func setBook(_ book: Book) {
         self.book = book
-//        self.review = book.reviews.randomElement()
-        self.review = "review"
     }
     
     func viewDidLoad() {
-        guard let book = book, let review = review else {
+        guard let book = book else {
             view.showErrorView()
             return
         }
         
         view.setBookTitleAndAuthor(title: book.name, author: book.author.name)
-        view.setReview(review)
+        
+        Repo.shared.book.getBookReviewList(isbn: book.isbn)
+            .map { $0.randomElement() }
+            .map { $0?.content ?? "이런.. 이 책에 리뷰가 없어요 ㅠㅠ"}
+            .catchErrorJustReturn("오류가 발생했어요")
+            .subscribe(onSuccess: { [weak self] review in
+                self?.review = review
+                self?.view.setReview(review)
+            })
+            .disposed(by: disposeBag)
     }
     
     func didTapReadingButton() {

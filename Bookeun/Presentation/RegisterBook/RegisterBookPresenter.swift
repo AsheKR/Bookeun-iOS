@@ -16,15 +16,16 @@ class RegisterBookPresenter: PresenterProtocol {
     required init(view: View) { self.view = view }
     let disposeBag = DisposeBag()
     var book: Book?
-    
-    func getBookData(_ isbm: String) {
+
+    func getBookData(_ isbn: String) {
         view.activateConformButton(false)
-        Repo.shared.book.getBook(isbm: isbm)
+        Repo.shared.book.getBook(isbn: isbn)
             .observeOn(MainScheduler.instance)
+            .debug("xxx")
             .subscribe(onSuccess: { [weak self, weak view] book in
                 self?.book = book
                 view?.setBook(book)
-                view?.activateConformButton(false)
+                view?.activateConformButton(true)
             }, onError: { [weak view] _ in
                 view?.presentErrorView()
             })
