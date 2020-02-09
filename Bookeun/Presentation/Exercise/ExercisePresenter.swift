@@ -23,6 +23,7 @@ class ExercisePresenter: PresenterProtocol {
     var readyCount: Int = 3
     var timerCount: Int = 0
     var exerciseImageIndex = 0
+    var isExerciseImageOrderingPositive = true
     var isReadyState: Bool = false {
         didSet {
             view.hideReadyView(!isReadyState)
@@ -33,7 +34,6 @@ class ExercisePresenter: PresenterProtocol {
             view.hideExplainView(!isExplainState)
         }
     }
-    
     var currentExerciseImageURLString: String {
         return exerciseList[exerciseIndex].exercise.imageURLs[0].url
     }
@@ -50,12 +50,7 @@ class ExercisePresenter: PresenterProtocol {
             return
         }
         exerciseList = list
-        guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
-            view.presentErrorView()
-            return
-        }
-        // TODO: Minutes -> Seconds & count is zero
-        timerCount = exerciseList[exerciseIndex].count * timePerExercise
+        setTimerCount()
     }
     
     func setCurrentExercise() {
@@ -91,46 +86,52 @@ class ExercisePresenter: PresenterProtocol {
         view.setExerciseImage(imageURL)
     }
     
+    func setTimerCount() {
+        guard let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime else {
+            view.presentErrorView()
+            return
+        }
+//        timerCount = exerciseList[exerciseIndex].count * timePerExercise * 60
+        timerCount = exerciseList[exerciseIndex].count * timePerExercise * 5
+    }
+    
     func exerciseTimer() {
-        let exercise = exerciseList[exerciseIndex].exercise
         // Exercise Images
-        if exerciseImageIndex == exercise.imageURLs.count {
-            exerciseImageIndex = 0
-        }
-        // TODO: image ordering issue
-        if exerciseImageIndex < 3 {
-            // 0 1 2
-            // 0 2 4
-            // TODO:
-            // setExerciseImage(exercise.imageURLs[exerciseImageIndex*2].url)
-            setExerciseImage(exercise.imageURLs[0].url)
-        } else {
-            // 3 4 5
-            // 0 2 4
-            // TODO:
-            // setExerciseImage(exercise.imageURLs[(exerciseImageIndex-3)*2].url)
-            setExerciseImage(exercise.imageURLs[0].url)
-        }
-        exerciseImageIndex += 1
+        let exercise = exerciseList[exerciseIndex].exercise
+        setExerciseImage(exercise.imageURLs[exerciseImageIndex].url)
         
+        if isExerciseImageOrderingPositive {
+            exerciseImageIndex += 1
+        } else {
+            exerciseImageIndex -= 1
+        }
+        
+        let imageMaxIndex = exercise.imageURLs.count - 1
+        if exerciseImageIndex == 0 || exerciseImageIndex == imageMaxIndex {
+            isExerciseImageOrderingPositive.toggle()
+        }
+       
         // Timer
         view.setTimerCount(timerCount)
         timerCount -= 1
         
-        if timerCount < 0 { // END Phase
-            secondTimer.invalidate()
-            setExerciseImage(currentExerciseImageURLString)
-            view.hideTimerView(true)
-            guard let book = Store.share.book else {
-                view.presentErrorView()
-                return
-            }
-            exerciseIndex += 1
-            if exerciseIndex == exerciseList.count {
-                showResultView()
-            } else {
-                showBreakTimeView(with: book)
-            }
+        if timerCount < 0 {
+            endOfExerciseSet()
+        }
+    }
+    
+    func endOfExerciseSet() {
+        secondTimer.invalidate()
+        setExerciseImage(currentExerciseImageURLString)
+        view.hideTimerView(true)
+        guard let book = Store.share.book else {
+            view.presentErrorView()
+            return
+        }
+        if exerciseIndex == exerciseList.count - 1 {
+            showResultView()
+        } else {
+            showBreakTimeView(with: book)
         }
     }
     
@@ -163,11 +164,9 @@ class ExercisePresenter: PresenterProtocol {
 
 extension ExercisePresenter: BreakDelegate {
     func didEndBreak() {
-        // 다음 운동 시간을 계산한다.
-        if let timePerExercise = exerciseList[exerciseIndex].exercise.exerciseTime, exerciseIndex < exerciseList.count {
-            timerCount = exerciseList[exerciseIndex].count * timePerExercise
-        } else {
-            view.presentErrorView()
-        }
+        exerciseIndex += 1
+        exerciseImageIndex = 0
+        setCurrentExercise()
+        setTimerCount()
     }
 }

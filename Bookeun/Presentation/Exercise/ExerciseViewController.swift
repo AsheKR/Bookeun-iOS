@@ -14,7 +14,8 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var englishNameLabel: UILabel!
-    @IBOutlet weak var hideExplainView: UIView!
+    @IBOutlet weak var setTimeWrapperView: UIView!
+    @IBOutlet weak var setTimeLabel: UILabel!
     @IBOutlet weak var exerciseGuideImageView: UIImageView!
     @IBOutlet weak var explainExerciseButton: UIButton!
     @IBOutlet weak var readyButton: UIButton!
@@ -41,7 +42,7 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     }
     
     override func attribute() {
-        hideExplainView.do {
+        setTimeWrapperView.do {
             $0.layer.cornerRadius = 17.0
         }
         explainExerciseButton.do {
@@ -96,6 +97,7 @@ class ExerciseViewController: ViewController<ExercisePresenter> {
     func setExercise(_ exercise: Exercise) {
         nameLabel.text = exercise.name
         englishNameLabel.text = exercise.name
+        setTimeLabel.text = "\(exercise.exerciseTime ?? 1)분"
     }
     
     func setExerciseImage(_ imageURL: URL) {

@@ -37,11 +37,11 @@ extension BookeunAPI: TargetType {
         case .getExerciseCategoryList:
             return "v1/exercise_categories"
         case .getExerciseList:
-            return "v1/exercises"
+            return "v1/exercises/"
         case .getExerciseListWithCategory(let categoryID):
             return "v1/exercise_categories/\(categoryID)"
         case .getExercise(let id):
-            return "v1/exercises/\(id)"
+            return "v1/exercises/\(id)/"
         case .getBook(let isbn):
             return "v1/books/\(isbn)"
         case .getBookReviewList(let isbn):
@@ -51,7 +51,14 @@ extension BookeunAPI: TargetType {
     
     var method: Moya.Method { .get }
     
-    var task: Task { .requestPlain }
+    var task: Task {
+        switch self {
+        case .getExerciseList, .getExercise:
+            return .requestParameters(parameters: ["trainer": 2], encoding: URLEncoding.default)
+        default:
+            return .requestPlain
+        }
+    }
     
     var sampleData: Data { Data() }
     

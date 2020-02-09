@@ -14,7 +14,7 @@ typealias Repo = RepositoryContainer
 class RepositoryContainer {
     static let shared: RepositoryContainer = .init()
     private init() {}
-    
+
     lazy private(set) var book: BookRepository = BookRepositoryImpl()
     
     lazy private(set) var exercise: ExerciseRepository = ExerciseRepositoryImpl()
