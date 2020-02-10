@@ -19,5 +19,4 @@ target 'Bookeun' do
   pod 'PanModal'
   pod 'lottie-ios'
   pod 'SwiftLint'
-
 end
