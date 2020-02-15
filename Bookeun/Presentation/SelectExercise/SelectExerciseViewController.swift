@@ -121,6 +121,7 @@ class SelectExerciseViewController: ViewController<SelectExerciseViewControllerP
     
     func update() {
         collectionView.reloadData()
+        scrollToCenter()
     }
 }
 

@@ -54,7 +54,7 @@ extension BookeunAPI: TargetType {
     var task: Task {
         switch self {
         case .getExerciseList, .getExercise:
-            return .requestParameters(parameters: ["trainer": 2], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["trainer": Store.share.trainer?.id ?? 2], encoding: URLEncoding.default)
         default:
             return .requestPlain
         }
